@@ -1,0 +1,186 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: PT+serif, sans-serif;
+}
+
+h1,h2,h3,h4,h5 {
+    font-family: Marcellus, sans-serif;
+}
+
+
+nav {
+    background-color: #FFFFFF;
+    color: #0d47a1;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 50px;
+    align-items: center;
+}
+
+
+#nav-logo {
+    width: 125px;
+    height: 45px;
+}
+
+#nav-submenu {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+}
+
+#nav-submenu > a {
+    color: gray;
+    text-decoration: none;
+}
+
+#nav-submenu > a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+#nav-right {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+#nav-right > a {
+    text-decoration: none;
+    color: gray;
+}
+
+#nav-right > a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+.btn-base {
+    color: white;
+    background-color: #0d47a1;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    font-family: PT+serif;
+    height: 50px;
+    cursor: pointer;
+}
+
+.main {
+    height: 650px;
+    background-image: url(./images/Long_ridge_of_Pashallore.jpg);
+    background-size: cover;
+    opacity: 0.9;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#main-txt {
+    max-width: 700px;
+    text-align: center;
+    color: white;
+    padding-bottom: 100px;
+}
+
+#main-txt > h1 {
+    font-size: 70px;
+}
+
+#services {
+    height: 620px;
+}
+
+#services > h1 {
+    color: #0d47a1;
+    font-size: 40px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 20px;
+    text-decoration: underline;
+}
+
+.section-content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 50px;
+    padding-top: 0px;
+    color: #0077B6;
+}
+
+.services-img {
+    width: 450px;
+    height: 300px;
+    border-radius: 4px;
+}
+
+.services-box > h2 {
+    color: #0d47a1;
+} 
+
+.services-box > p {
+    max-width: 420px;
+    font-size: 18px;
+}
+
+#price {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #0077B6;
+    border: none;
+    padding: 3px;
+    max-width: 60px;
+    text-align: center;
+    border-radius: 3px;
+}
+
+.products {
+    height: 650px;
+    margin-top: 100px;
+}
+
+.products-content {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    padding-bottom: 70px;
+    color: #0077B6;
+}
+
+.products > h1 {
+    color: #0d47a1;
+    font-size: 40px;
+    padding: 25px;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.products > button {
+    display: block;
+    margin: auto;
+    width: auto;
+}
+
+
+.products-img {
+    width: 250px;
+    height: 250px;
+    border-radius: 100%;
+}
+
+.btn-base > a {
+    text-decoration: none;
+    color: white;
+}
+
+
