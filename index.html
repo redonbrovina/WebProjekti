@@ -13,17 +13,10 @@
     0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0
     ,100..900;1,100..900&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,
-    wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Merriweather:
-    ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,
-    wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,
-    700&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
-        <img id="nav-logo" src="./images/ACTN.png" alt="site-logo">
+        <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
@@ -40,7 +33,7 @@
     <div class="main">
         <div id="main-txt">
             <h1>Where Nature and Heritage Meet.</h1>
-            <button class="btn-base" onClick="document.getElementById('services').scrollIntoView();">Discover More</button>
+            <button id="scroll-btn" onClick="document.getElementById('services').scrollIntoView();">Explore</button>
         </div>
     </div>
 
@@ -78,7 +71,7 @@
 
     <div class="products">
         <h1>Our Bestsellers</h1>
-
+        <p>Equip yourself for every journey with our handpicked hiking gear, built for adventure and exploration.</p>
         <div class="products-content">
             <div class="products-box">
                 <img class="products-img" src="./images/boots1.jpg" alt="placeholder">
@@ -86,12 +79,12 @@
             </div>
 
             <div class="products-box">
-                <img class="products-img" src="./images/boots1.jpg" alt="placeholder">
+                <img class="products-img" src="./images/boots4.png" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
 
             <div class="products-box">
-                <img class="products-img" src="./images/boots1.jpg" alt="placeholder">
+                <img class="products-img" src="./images/hiking-bag.jpg" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
         </div>
@@ -99,6 +92,26 @@
         <button class="btn-base"><a href="shop.html" target="_blank">See All</a></button>
     </div>
 
-    <footer></footer>
+    <footer>
+        <div>
+            <h1>Autochtonus</h1>
+            <p style="color: #4A4A4A;">Experience the soul of the land.</p>
+        </div>
+
+        <div class="footer-box">
+            <div>
+                <h3>Location</h3>
+                <p style="color: #4A4A4A;">123 Street</p>
+                <p style="color: #4A4A4A;">Prishtine, 00000</p>
+            </div>
+            <div>
+                <h3>Contact</h3>
+                <p style="color: #4A4A4A;">email1@ubt-uni.net</p>
+                <p style="color: #4A4A4A;">email2@ubt-uni.net</p>
+                <p style="color: #4A4A4A;">(+383) 44-123-456</p>
+            </div>
+
+        </div>
+    </footer>
 </body>
 </html>
