@@ -22,8 +22,44 @@
     ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,
     wght@0,100..900;1,100..900&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,
     700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="register-form.css">
 </head>
 <body>
-    <h1>Sign Up</h1>
+    <div class="background-image"></div>
+    <main>
+        <div class="main-content">
+            <div class="content">
+                <a id="back-home" href="./index.html"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
+                <img id="form-logo" src="./images/ACTN.png" alt="site-logo">
+                <div class="input-box">
+                    <p>Username:</p>
+                    <input id="username" type="text">
+                </div>
+                <div class="input-box">
+                    <p>Password:</p>
+                    <input id="password" type="text">
+                </div>
+                <div class="input-box">
+                    <p>Gender:</p>
+                    <div id="gender-box">
+                        <p>Male<input name="Gender" type="radio" value="Male"></p>
+                        <p>Female<input name="Gender" type="radio" value="Female"></p>
+                    </div>
+                </div>
+                <div class="input-box">
+                    <p>Email:</p>
+                    <input id="email" type="text">
+                </div>
+                <div class="input-box">
+                    <p>Phone Number (Optional) :</p>
+                    <input id="phone" type="text">
+                </div>
+                <p id="error-txt"></p>
+                <button class="btn-base" onclick="enterData()">Sign Up</button>
+                <p id="bottom-txt">Already have an account? <a href="form.html" target="_blank">Sign in!</a></p>
+            </div>
+        </div>
+    </main>
+    <script src="./register-form.js"></script>
 </body>
 </html>
