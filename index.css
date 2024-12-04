@@ -200,17 +200,33 @@ nav {
 }
 
 footer {
+    background-color: #D3D3D3;
+    padding: 20px 100px;
+    border-top: 1px solid #4A4A4A;
+}
+
+footer > label {
+    color:#4a4a4a;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
     display: flex;
     justify-content: space-between;
-    padding: 20px 100px;
-    background-color: #D3D3D3;
-    color: black;
-    align-items: baseline;
+    color: #4A4A4A;
+    align-items: center;
+    padding: 20px 0px;
 }
 
-.footer-box {
+.footer-img {
+    width: 200px;
+    height: 60px;
+}
+
+#footer-right {
     display: flex;
-    gap: 100px;
-    align-items: baseline;
+    justify-content: baseline;
+    align-items: start;
+    gap: 150px;
 }
-
