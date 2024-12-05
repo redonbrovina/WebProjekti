@@ -44,13 +44,12 @@ nav {
     gap: 50px;
     align-items: center;
 }
-
-#nav-right > a {
+#form-redirect {
     text-decoration: none;
     color: gray;
 }
 
-#nav-right > a:hover {
+#nav-right > form-redirect:hover {
     color: black;
     text-decoration: underline;
     transition: 0.3s;
@@ -103,7 +102,7 @@ nav {
 }
 
 #services {
-    height: 620px;
+    height: 680px;
 }
 
 #services > h1 {
@@ -153,7 +152,7 @@ nav {
 
 .products {
     height: 650px;
-    margin-top: 100px;
+    margin-top: 70px;
 }
 
 .products-content {
@@ -180,10 +179,10 @@ nav {
     padding-bottom: 25px;
 }
 
-.products > button {
+.products > a {
     display: block;
     margin: auto;
-    width: auto;
+    width: fit-content;
 }
 
 
