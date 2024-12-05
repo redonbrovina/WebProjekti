@@ -69,3 +69,153 @@ nav {
     text-decoration: none;
     color: white;
 }
+
+main {
+    padding: 50px;
+    background: linear-gradient(#0d47a1 , white);
+}
+
+.opening {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+}
+
+#opening-title {
+    font-size: 50px;
+    text-align: center;
+    max-width: 800px;
+}
+
+#opening-intro {
+    line-height: 1.7;
+    font-size: 22px;
+    max-width: 1000px;
+    text-align: center;
+}
+
+.services-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    gap: 100px;
+}
+
+.service-box {
+    background: white;
+    padding: 30px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: none;
+    border-radius: 6px;
+    width: 1200px;
+}
+
+.service-box:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+.service-box > h1 {
+    text-align: center;
+    color: #0d47a1;
+}
+
+.service-content {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.service-box-img {
+    border-radius: 6px;
+    width: 450px;
+    height: 300px;
+}
+
+.service-box-description {
+    max-width: 600px;
+    font-size: 18px;
+    color: #4a4a4a;
+    line-height: 1.6;
+}
+
+.service-box-description > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 50px;
+}
+
+.btn-book {
+    color: #0d47a1;
+    background-color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 2px solid #0d47a1;
+    font-weight: 600;
+    font-family: Marcellus, sans-serif;
+    height: 50px;
+    cursor: pointer;
+}
+
+.btn-book:hover {
+    color: white;
+    background-color: #0d47a1;
+    transition: 0.3s;
+}
+
+.price {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #0d47a1;
+    border: none;
+    max-width: 60px;
+    text-align: center;
+    border-radius: 3px;
+    padding: 3px 15px;
+}
+
+
+
+
+
+
+
+footer {
+    margin-top: 40px;
+    background-color: #D3D3D3;
+    padding: 20px 100px;
+    border-top: 1px solid #4A4A4A;
+}
+
+footer > label {
+    color:#4a4a4a;
+    display: flex;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    color: #4A4A4A;
+    align-items: center;
+    padding: 20px 0px;
+}
+
+.footer-img {
+    width: 200px;
+    height: 60px;
+}
+
+#footer-right {
+    display: flex;
+    justify-content: baseline;
+    align-items: start;
+    gap: 150px;
+}
