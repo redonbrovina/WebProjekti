@@ -7,12 +7,7 @@
     <link rel="stylesheet" href="./index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,
-    wght@0,14..32,100..900;1,14..32,100
-    ..900&family=Marcellus&family=Merriweather:ital,wght@0,300;
-    0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0
-    ,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav>
@@ -25,6 +20,14 @@
         </div>
 
         <div id="nav-right">
+            <a id="form-redirect" href="form.html" target="_blank">Sign in</a>
+            <a href="./register-form.html" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+        </div>
+        <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
+        <div id="mobile-nav">
+            <a href="shop.html" target="_blank">Shop</a>
+            <a href="about.html" target="_blank">About Us</a>
+            <a href="services.html" target="_blank">Services</a>
             <a id="form-redirect" href="form.html" target="_blank">Sign in</a>
             <a href="./register-form.html" target="_blank"><button class="btn-base">Sign up for Free</button></a>
         </div>
@@ -78,17 +81,17 @@
         <p>Equip yourself for every journey with our handpicked hiking gear, built for adventure and exploration.</p>
         <div class="products-content">
             <div class="products-box">
-                <img class="products-img" src="./images/boots1.jpg" alt="placeholder">
+                <img class="products-img" src="./images/jacket.jpg" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
 
             <div class="products-box">
-                <img class="products-img" src="./images/boots4.png" alt="placeholder">
+                <img class="products-img" src="./images/product3.jpg" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
 
             <div class="products-box">
-                <img class="products-img" src="./images/hiking-bag.jpg" alt="placeholder">
+                <img class="products-img" src="./images/bag2.webp" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
         </div>
@@ -118,7 +121,19 @@
                 </div>
             </div>
         </div>
-        <label>Autochtonus &copy 2024</label>
+        <label>&copy; 2025 Autochtonus. All rights reserved</label>
     </footer>
+    <script>
+        const mobileNav = document.getElementById("mobile-nav");
+
+        document.getElementById("menu-logo").addEventListener("click", () => {
+            if(mobileNav.style.display == "flex"){
+                mobileNav.style.display = "none";
+            }else{
+                mobileNav.style.display = "flex";
+            }
+        })
+    </script>
 </body>
 </html>
+
