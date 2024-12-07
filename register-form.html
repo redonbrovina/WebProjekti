@@ -21,26 +21,26 @@
                 <img id="form-logo" src="./images/ACTN.png" alt="site-logo">
                 <div class="input-box">
                     <p>Username</p>
-                    <input id="username" type="text">
+                    <input id="username" type="text" maxlength="30">
                 </div>
                 <div class="input-box">
                     <p>Password</p>
-                    <input id="password" type="text">
+                    <input id="password" type="text" maxlength="30">
                 </div>
                 <div class="input-box">
                     <p>Gender</p>
                     <div id="gender-box">
-                        <p>Male<input name="Gender" type="radio" value="Male"></p>
-                        <p>Female<input name="Gender" type="radio" value="Female"></p>
+                        <p>Male<input id="male" name="gender" type="radio" value="Male"></p>
+                        <p>Female<input id="female" name="gender" type="radio" value="Female"></p>
                     </div>
                 </div>
                 <div class="input-box">
                     <p>Email</p>
-                    <input id="email" type="text">
+                    <input id="email" type="email" maxlength="60">
                 </div>
                 <div class="input-box">
                     <p>Phone Number (Optional)</p>
-                    <input id="phone" type="text">
+                    <input id="phone" type="text" maxlength="9">
                 </div>
                 <p id="error-txt"></p>
                 <button class="btn-base" onclick="enterData()">Sign Up</button>
