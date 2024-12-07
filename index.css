@@ -53,7 +53,7 @@ nav {
     color: gray;
 }
 
-#nav-right > form-redirect:hover {
+#form-redirect:hover {
     color: black;
     text-decoration: underline;
     transition: 0.3s;
@@ -202,8 +202,8 @@ nav {
 
 
 .products-img {
-    width: 15.625rem;
-    height: 15.625rem;
+    width: 15rem;
+    height: 15rem;
     border-radius: 50%;
     border: 0.0625rem solid #D3D3D3;
 }
@@ -214,13 +214,12 @@ nav {
 }
 
 footer {
-    background-color: #D3D3D3;
+    background-color: #0d47a1;
     padding: 2.25rem 6.25rem;
-    border-top: 0.0625rem solid #4A4A4A;
 }
 
 footer > label {
-    color:#4a4a4a;
+    color:white;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -230,7 +229,7 @@ footer > label {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    color: #4A4A4A;
+    color: white;
     align-items: center;
 }
 

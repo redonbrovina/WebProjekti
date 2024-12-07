@@ -188,34 +188,34 @@ main {
 
 
 footer {
-    margin-top: 40px;
-    background-color: #D3D3D3;
-    padding: 20px 100px;
-    border-top: 1px solid #4A4A4A;
+    background-color: #0d47a1;
+    padding: 2.25rem 6.25rem;
 }
 
 footer > label {
-    color:#4a4a4a;
+    color:white;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
-    color: #4A4A4A;
+    color: white;
     align-items: center;
-    padding: 20px 0px;
 }
 
 .footer-img {
-    width: 200px;
-    height: 60px;
+    width: 12.5rem;
+    height: auto;
 }
 
 #footer-right {
     display: flex;
+    flex-wrap: wrap;
     justify-content: baseline;
     align-items: start;
-    gap: 150px;
+    gap: 9.375rem;
 }
