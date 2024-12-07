@@ -1,3 +1,4 @@
+
 html {
     scroll-behavior: smooth;
 }
@@ -12,20 +13,22 @@ nav {
     background-color: #FFFFFF;
     color: #0d47a1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 10px 50px;
+    padding: 0.625rem 3.125rem;
     align-items: center;
 }
 
 #nav-logo {
-    width: 125px;
-    height: 45px;
+    width: 7.8125em;
+    height: auto;
 }
 
 #nav-submenu {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    gap: 50px;
+    gap: 3.125rem;
 }
 
 #nav-submenu > a {
@@ -41,7 +44,8 @@ nav {
 
 #nav-right {
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap;
+    gap: 3.125rem;
     align-items: center;
 }
 #form-redirect {
@@ -55,119 +59,130 @@ nav {
     transition: 0.3s;
 }
 
+#menu-logo {
+    display: none;
+}
+
+#mobile-nav {
+    display: none;
+}
+
 .btn-base {
     color: white;
     background-color: #0d47a1;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
     border: none;
     font-weight: 600;
     font-family: Marcellus, sans-serif;
-    height: 50px;
+    height: 3.125rem;
     cursor: pointer;
 }
 
 #scroll-btn {
     background: transparent;
     color: white;
-    border: 1px solid white;
-    font-size: 20px;
-    border-radius: 8px;
-    padding: 10px 20px;
+    border: 0.0625rem solid white;
+    font-size: 1.25rem;
+    border-radius: 0.5rem;
+    padding: 0.625rem 1.25rem;
     font-weight: 300;
     font-family: Marcellus, sans-serif;
     cursor: pointer;
 }
 
 .main {
-    height: 650px;
+    height: 40.625rem;
     background-image: url(./images/Long_ridge_of_Pashallore.jpg);
     background-size: cover;
     opacity: 0.9;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
 #main-txt {
-    max-width: 700px;
+    max-width: 43.75rem;
     text-align: center;
     color: white;
-    padding-bottom: 100px;
+    padding-bottom: 6.25rem;
 }
 
 #main-txt > h1 {
-    font-size: 70px;
+    font-size: 4.375rem;
 }
 
 #services {
-    height: 680px;
+    height: 42.5rem;
 }
 
 #services > h1 {
     color: #0d47a1;
-    font-size: 40px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 20px;
+    font-size: 2.5rem;
+    padding: 1.25rem 3.125rem;
     text-decoration: underline;
 }
 
 .section-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     flex-direction: row;
-    padding: 50px;
-    padding-top: 0px;
+    padding: 3.125rem;
+    padding-top: 0;
     color: #0077B6;
 }
 
 .services-img {
-    width: 450px;
-    height: 300px;
-    border-radius: 4px;
+    width: 100%;
+    height: 15.75rem;
+    object-fit: cover;
+    border-radius: 0.25rem;
 }
 
 .services-box > h2 {
     color: #0d47a1;
 } 
 
+
 .services-box > p {
-    max-width: 420px;
-    font-size: 18px;
+    max-width: 26.25rem;
+    font-size: 1.125rem;
 }
 
 #price {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: bold;
     color: white;
     background-color: #0077B6;
     border: none;
-    padding: 3px;
-    max-width: 60px;
+    padding: 0.1875rem;
+    max-width: 3.75rem;
     text-align: center;
-    border-radius: 3px;
+    border-radius: 0.1875rem;
 }
 
 .products {
-    height: 650px;
-    margin-top: 70px;
+    width: 100%;
+    height: 40.625rem;
+    margin-top: 4.375rem;
 }
 
 .products-content {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
     flex-direction: row;
-    padding-bottom: 70px;
+    padding-bottom: 4.375rem;
     color: #0077B6;
 }
 
 .products > h1 {
     color: #0d47a1;
-    font-size: 40px;
-    padding: 25px;
-    padding-bottom: 10px;
+    font-size: 2.5rem;
+    padding: 1.5625rem;
     text-decoration: underline;
     text-align: center;
 }
@@ -175,8 +190,8 @@ nav {
 .products > p {
     color: #0d47a1;
     text-align: center;
-    font-size: 20px;
-    padding-bottom: 25px;
+    font-size: 1.25rem;
+    padding-bottom: 1.5625rem;
 }
 
 .products > a {
@@ -187,10 +202,10 @@ nav {
 
 
 .products-img {
-    width: 250px;
-    height: 250px;
-    border-radius: 100%;
-    border: 1px solid #D3D3D3;
+    width: 15.625rem;
+    height: 15.625rem;
+    border-radius: 50%;
+    border: 0.0625rem solid #D3D3D3;
 }
 
 .btn-base > a {
@@ -200,32 +215,251 @@ nav {
 
 footer {
     background-color: #D3D3D3;
-    padding: 20px 100px;
-    border-top: 1px solid #4A4A4A;
+    padding: 2.25rem 6.25rem;
+    border-top: 0.0625rem solid #4A4A4A;
 }
 
 footer > label {
     color:#4a4a4a;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
 .footer {
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     color: #4A4A4A;
     align-items: center;
-    padding: 20px 0px;
 }
 
 .footer-img {
-    width: 200px;
-    height: 60px;
+    width: 12.5rem;
+    height: auto;
 }
 
 #footer-right {
     display: flex;
+    flex-wrap: wrap;
     justify-content: baseline;
     align-items: start;
-    gap: 150px;
+    gap: 9.375rem;
+}
+
+@media (max-width: 1280px){
+    
+    .section-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    #services > h1, .products > h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+    .services-img {
+        width: 100%;
+        height: 20rem;
+    }
+
+    .services-box > p {
+        max-width: 50rem;
+        font-size: 1rem;
+    }
+
+    .products {
+        margin-top: 72rem;
+    }
+}
+
+@media (max-width: 1024px){
+    nav {
+        font-size: smaller;
+    }
+
+    .main {
+        height: auto;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    #main-txt > h1 {
+        font-size: 2.5rem;
+    }
+
+    #services > h1, .products > h1 {
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    .section-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .services-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .services-box > p {
+        max-width: 50rem;
+        font-size: 1rem;
+    }
+
+    .products {
+        margin-top: 92rem;
+        margin-bottom: -4rem;
+    }
+
+    .products > p {
+        max-width: 40rem;
+        margin: auto;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .products-content {
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .products-img {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    #footer-right {
+        gap: 3.4rem;
+        font-size: 0.8rem;
+    }
+
+    #footer-left { 
+        max-width: 16rem;
+    }
+
+    footer > label {
+        padding-top: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #nav-submenu, #nav-right {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        padding: 0;
+        padding-top: 4px;
+    }
+
+    #mobile-nav > a {
+        color: #4A4A4A;
+        text-decoration: none;
+    }
+
+    #mobile-nav > a > button {
+        font-size: smaller;
+        padding: 0.6rem;
+        height: auto;
+    }
+
+    #menu-logo {
+        display: flex;
+        width: 1.3rem;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .main {
+        padding: 2rem;
+        text-align: center;
+    }
+
+    #main-txt > h1 {
+        font-size: 2.5rem;
+    }
+
+    #services > h1, .products > h1 {
+        font-size: 2rem;
+    }
+
+    .section-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .services-img {
+        width: 100%;
+        height: auto;
+    }
+
+    .products {
+        margin-top: 55rem;
+    }
+
+    .products > p {
+        max-width: 22rem;
+        margin: auto;
+        display: block;
+        margin-bottom: 1rem;
+    }
+
+    .services-box > p {
+        font-size: 1rem;
+    }
+
+    .products-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .products-img {
+        width: 10rem;
+        height: 10rem;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 24rem;
+    }
+
+    #footer-right {
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 2rem;
+        justify-content: center;
+        font-size: 0.8rem;
+    }
+
+    #footer-left { 
+        width: 100%;
+    }
+
+    .footer-img {
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    #footer-right > div{
+        padding: 0.6rem;
+    }
 }
