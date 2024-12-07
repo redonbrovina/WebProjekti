@@ -103,6 +103,32 @@ ul li {
     margin: 10px 0;
 }
 
+#team {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.ceo-container {
+    display: flex;
+    justify-content: center;
+    gap: 65px;
+    margin-top: 20px;
+}
+
+.ceo {
+    text-align: center;
+}
+
+.ceo img {
+    width: auto;
+    height: auto;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+}
+
 footer {
     text-align: center;
     padding: 10px 0;
