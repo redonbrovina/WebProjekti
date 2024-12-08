@@ -130,11 +130,34 @@ ul li {
 }
 
 footer {
-    text-align: center;
-    padding: 10px 0;
     background-color: #0d47a1;
+    padding: 2.25rem 6.25rem;
+}
+
+footer > label {
+    color:white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     color: white;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+    align-items: center;
+}
+
+.footer-img {
+    width: 12.5rem;
+    height: auto;
+}
+
+#footer-right {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: baseline;
+    align-items: start;
+    gap: 9.375rem;
 }
