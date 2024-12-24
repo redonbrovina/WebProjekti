@@ -1,7 +1,7 @@
 body {
     margin: 0;
     font-family: Marcellus, sans-serif;
-    height: 700px;
+    height: 43.75rem; 
     width: 100%;
     position: fixed;
 }
@@ -21,7 +21,7 @@ main {
     background-image: url('./images/background-image-register-form.webp');
     background-size: cover;
     background-position: center;
-    filter: blur(8px);
+    filter: blur(0.5rem); 
     z-index: 1;
     transform: scale(1.1);
 }
@@ -29,108 +29,149 @@ main {
 .main-content {
     position: relative;
     z-index: 2;
-    background-color:white;
+    background-color: white;
     opacity: 0.8;
-    padding: 30px;
-    border-radius: 8px;
+    padding: 1.875rem; 
+    border-radius: 0.5rem; 
     text-align: center;
-    width: 400px;
+    width: 25rem; 
     margin: 0 auto;
-    margin-top: 20px;   
+    margin-top: 1.25rem; 
 }
 
 .content {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    gap: 40px;
+    gap: 2.5rem; 
 }
 
 #back-icon {
-    width: 16px;
-    height: 16px;
-    padding-left: 5px;
+    width: 1rem; 
+    height: 1rem; 
+    padding-left: 0.3125rem; 
 }
 
 #back-home {
     display: flex;
     justify-content: left;
     align-items: center;
-    gap: 6px;
+    gap: 0.375rem; 
     color: #4a4a4a;
-    margin-bottom: -30px;
-    font-size: 14px;
+    margin-bottom: -1.875rem; 
+    font-size: 0.875rem;
     text-decoration: none;
 }
 
 #form-logo {
-    width: 200px;
+    width: 55%;
     height: auto;
-    display: block;
-    margin: auto;
+    align-self: center;
+    margin-top: 0.5rem;
 }
 
 .btn-base {
     color: white;
     background-color: #0d47a1;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 0.625rem 1.25rem; 
+    border-radius: 0.5rem; 
     border: none;
     font-weight: 600;
     font-family: Marcellus, sans-serif;
-    height: 50px;
+    height: 3.125rem; 
     cursor: pointer;
-    font-size: 20px;
+    font-size: 1.25rem; 
 }
 
 .input-box {
     display: flex;
     flex-direction: column;
-    line-height: 1px;
-    gap: 3px;
+    line-height: 0.0625rem;
+    gap: 0.1875rem; 
     text-align: left;
-    margin-top: -30px;
+    margin-top: -1.875rem; 
     color: #4a4a4a;
-    font-size: 14px;
+    font-size: 0.875rem; 
 }
 
 input {
-    padding: 6px;
-    border-radius: 4px;
-    border: 1px solid gray;
-    font-size: 16px;
+    padding: 0.375rem; 
+    border-radius: 0.25rem; 
+    border: 0.0625rem solid gray; 
+    font-size: 1rem; 
     font-family: Marcellus, sans-serif;
 }
 
 #gender-box {
     display: flex;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
-input[type = "radio"]{
-    margin-top: -10px;
-    margin-bottom: -10px;
+input[type="radio"] {
+    margin-top: -0.625rem;
+    margin-bottom: -0.625rem;
     accent-color: #0d47a1;
 }
 
 #error-txt {
     color: red;
     text-align: left;
-    margin-top: -17px;
-    margin-bottom: -17px;
-    padding-left: 3px;
-    font-size: 12px;
+    margin-top: -1.0625rem;
+    margin-bottom: -1.0625rem;
+    padding-left: 0.1875rem;
+    font-size: 0.75rem;
     text-decoration: underline;
-    text-underline-offset: 4px;
-    line-height: 1px;
+    text-underline-offset: 0.25rem;
+    line-height: 0.0625rem;
 }
 
 #bottom-txt {
-    font-size: 14px;
-    margin-top: -20px;
-    margin-bottom: -2px;
+    font-size: 0.875rem;
+    margin-top: -1.25rem;
+    margin-bottom: -0.125rem;
 }
 
 #bottom-txt > a {
     color: #0d47a1;
+}
+
+
+@media (max-width: 1280px){
+    .background-image {
+        transform: scale(1.3);
+    }
+
+    main {
+        margin-top: 3rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    body {
+        height: 50rem;
+        overflow-y: scroll;
+        position: relative;
+    }
+    main {
+        margin-top: 3rem;
+        position: relative;
+        height: 50rem;
+    }
+}
+
+@media (max-width: 480px) {
+    main {
+        margin-top: 3rem;
+    }
+
+    .background-image {
+        transform: scale(1.6);
+    }
+
+    .main-content {
+        width: 60%;
+    }
+    .content {
+        width: 100%;
+    }
 }

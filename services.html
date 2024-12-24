@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autochtonus/services</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Autochtonus</title>
+    <title>Autochthonous/services</title>
     <link rel="stylesheet" href="./services.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,8 +21,16 @@
         </div>
 
         <div id="nav-right">
-            <a href="form.html" target="_blank">Sign in</a>
-            <a href="register-form.html" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <a id="form-redirect" href="form.html" target="_blank">Sign in</a>
+            <a href="./register-form.html" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+        </div>
+        <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
+        <div id="mobile-nav">
+            <a href="shop.html" target="_blank">Shop</a>
+            <a href="about.html" target="_blank">About Us</a>
+            <a href="services.html" target="_blank">Services</a>
+            <a id="form-redirect" href="form.html" target="_blank">Sign in</a>
+            <a href="./register-form.html" target="_blank"><button class="btn-base">Sign up for Free</button></a>
         </div>
     </nav>
     <main>
@@ -46,7 +51,7 @@
         </div>
 
         <div class="services-container">
-            <div class="service-box">
+            <div class="service-box" id="brezovica">
                 <h1>Brezovica</h1>
                 <div class="service-content"> 
                     <img class="service-box-img" src="./images/brezovica.jpg" alt="Brezovica">
@@ -64,7 +69,7 @@
                 </div>
             </div>
 
-            <div class="service-box">
+            <div class="service-box" id="Sharr">
                 <h1>Sharr National Park</h1>
                 <div class="service-content"> 
                     <img class="service-box-img" src="./images/Sharr.jpg" alt="Sharri">
@@ -82,7 +87,7 @@
                 </div>
             </div>
 
-            <div class="service-box">
+            <div class="service-box" id="Rugova">
                 <h1>Rugova Canyon</h1>
                 <div class="service-content"> 
                     <img class="service-box-img" src="./images/Rugova_Canyon.jpg" alt="Rugova">
@@ -100,7 +105,7 @@
                 </div>
             </div>
 
-            <div class="service-box">
+            <div class="service-box" id="Luboteni">
                 <h1>Luboteni</h1>
                 <div class="service-content"> 
                     <img class="service-box-img" src="./images/luboteni.jpg" alt="Luboteni">
@@ -136,12 +141,24 @@
                 </div>
                 <div>
                     <b style="font-size: large;">Contact</b>
-                    <p>autochtonus@gmail.com</p>
+                    <p>autochthonous@gmail.com</p>
                     <p>(+383) 44-123-456</p>
                 </div>
             </div>
         </div>
-        <label>&copy; 2025 Autochtonus. All rights reserved</label>
+        <label>&copy; 2025 Autochthonous. All rights reserved</label>
     </footer>
+
+    <script>
+        const mobileNav = document.getElementById("mobile-nav");
+
+        document.getElementById("menu-logo").addEventListener("click", () => {
+            if(mobileNav.style.display == "flex"){
+                mobileNav.style.display = "none";
+            }else{
+                mobileNav.style.display = "flex";
+            }
+        })
+    </script>
 </body>
 </html>
