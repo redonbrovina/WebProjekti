@@ -1,3 +1,10 @@
+<?php
+include_once 'Database/LoginController.php';
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +21,15 @@
     <main>
         <div class="main-content">
             <div class="content">
-                <a id="back-home" href="./index.html"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
-                <img id="form-logo" src="./images/ACTN.png" alt="">
-                <input type="text" placeholder="Username..." id="user">
-                <input type="password" placeholder="Password..." id="password">
-                <p id="error-txt"></p>
-                <button class="btn-base" onclick="submit()">Sign In</button>
-                <p id="bottom-txt">Don't have an account? <a href="register-form.html" target="_blank">Create one!</a></p>
+                <form action="Database/LoginController.php" method="POST">
+                    <a id="back-home" href="./index.html"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
+                    <img id="form-logo" src="./images/ACTN.png" alt="">
+                    <input type="text" name="username" placeholder="Username...">
+                    <input type="password" name="password" placeholder="Password...">
+                    <p id="error-txt"></p>
+                    <button name="loginBtn" type="submit" class="btn-base">Sign In</button>
+                    <p id="bottom-txt">Don't have an account? <a href="register-form.php" target="_blank">Create one!</a></p>
+                </form>
             </div>
         </div>
     </main>
