@@ -1,0 +1,152 @@
+body {
+    margin: 0;
+    font-family: Marcellus, sans-serif;
+    background-color: #b6e2f6;
+    color: rgba(0, 0, 0, 0.851);
+}
+
+nav {
+    background-color: #FFFFFF;
+    color: #0d47a1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0.625rem 3.125rem;
+    align-items: center;
+}
+
+#nav-logo {
+    width: 7.8125em;
+    height: auto;
+}
+
+#nav-submenu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 3.125rem;
+}
+
+#nav-submenu > a {
+    color: gray;
+    text-decoration: none;
+}
+
+#nav-submenu > a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+#nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.125rem;
+    align-items: center;
+}
+#form-redirect {
+    text-decoration: none;
+    color: gray;
+}
+
+#form-redirect:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+#menu-logo {
+    display: none;
+}
+
+#mobile-nav {
+    display: none;
+}
+#user-txt {
+    color: gray;
+    font-size: 1rem;
+}
+
+#host-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.btn-base {
+    color: white;
+    background-color: #0d47a1;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    font-family: Marcellus, sans-serif;
+    height: 3.125rem;
+    cursor: pointer;
+}
+
+main {
+    padding: 5rem;
+}
+
+@media (max-width: 1024px){
+    nav {
+        font-size: smaller;
+    }
+
+    #nav-right {
+        gap: 2rem;
+    }
+
+
+    #user-txt {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #nav-submenu, #nav-right {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        padding: 0;
+        padding-top: 4px;
+    }
+
+    #mobile-nav > a {
+        color: #4A4A4A;
+        text-decoration: none;
+    }
+
+    #mobile-nav > a > button {
+        font-size: smaller;
+        padding: 0.6rem;
+        height: auto;
+    }
+
+    #menu-logo {
+        display: flex;
+        width: 1.3rem;
+        height: auto;
+        cursor: pointer;
+    }
+    
+
+    #user-txt {
+        margin: 0;
+        color: #4A4A4A;
+        font-size: 0.9rem;
+        font-family: Marcellus, sans-serif;
+    }
+}

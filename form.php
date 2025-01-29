@@ -1,7 +1,6 @@
 <?php
 include_once 'Database/LoginController.php';
-
-session_start();
+include_once 'Database/UserRepository.php';
 
 ?>
 
@@ -24,8 +23,8 @@ session_start();
                 <form action="Database/LoginController.php" method="POST">
                     <a id="back-home" href="./index.html"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
                     <img id="form-logo" src="./images/ACTN.png" alt="">
-                    <input type="text" name="username" placeholder="Username...">
-                    <input type="password" name="password" placeholder="Password...">
+                    <input id="user" type="text" name="username" placeholder="Username...">
+                    <input id="pass" type="password" name="password" placeholder="Password...">
                     <p id="error-txt"></p>
                     <button name="loginBtn" type="submit" class="btn-base">Sign In</button>
                     <p id="bottom-txt">Don't have an account? <a href="register-form.php" target="_blank">Create one!</a></p>
@@ -33,6 +32,5 @@ session_start();
             </div>
         </div>
     </main>
-    <script src="form.js"></script>
 </body>
 </html>

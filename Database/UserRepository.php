@@ -23,13 +23,13 @@ class UserRepository {
         $phone = $user->getPhone();
 
         try{
-            $sql = "INSERT INTO user (id, username, password, gender, email, phone) VALUES (:id, :username, :password, :gender, :email, :phone)";
+            $sql = "INSERT INTO user (id, username, password, gender, email, phone) VALUES (:id, :username, :pass, :gender, :email, :phone)";
             $statement = $conn->prepare($sql);
 
 
             $statement->bindParam(':id', $id);
             $statement->bindParam(':username', $username);
-            $statement->bindParam(':password', $password);
+            $statement->bindParam(':pass', $password);
             $statement->bindParam(':gender', $gender);
             $statement->bindParam(':email', $email);
             $statement->bindParam(':phone', $phone);
@@ -41,8 +41,6 @@ class UserRepository {
             echo 'Error: ' . $e->getMessage(); 
             return false;
         }
-
-        return false;
     }
 
     function getAllUsers() {
@@ -65,6 +63,39 @@ class UserRepository {
         $user = $statement->fetch();
 
         return $user;
+    }
+
+    public function getUserByUsername($username){
+        $conn = $this->connection;
+        $sql = "SELECT * FROM user WHERE username = '$username'";
+
+        $statement = $conn->query($sql);
+
+        $user = $statement->fetch(PDO::FETCH_ASSOC);
+
+        return $user;
+    }
+
+
+    function checkLogin($username, $inputPassword) {
+        $conn = $this->connection;
+
+        $sql = "SELECT password FROM user WHERE username = '$username'";
+        $stmt = $conn->query($sql);
+
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$user) {
+            return false;
+        }
+
+        $pass = $user['password'];
+
+        if (password_verify($inputPassword, $pass) || $inputPassword == $pass) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
 

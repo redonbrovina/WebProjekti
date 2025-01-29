@@ -1,3 +1,9 @@
+<?php
+session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <nav>
@@ -20,16 +27,34 @@
         </div>
 
         <div id="nav-right">
-            <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
-            <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php if(isset($_SESSION['role'])):?> 
+                <?php if($_SESSION['role'] == 'admin'):?>
+                    <a id="host-link" href="./host.php">Dashboard</a>
+                    <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+                <?php else:?>
+                    <a id="host-link" href="./userDashboard.php">Dashboard</a>
+                    <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+                <?php endif; ?>
+            <?php else: ?>
+                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
+                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php endif; ?>
         </div>
         <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
             <a href="services.html" target="_blank">Services</a>
-            <a id="form-redirect" href="form.html" target="_blank">Sign in</a>
-            <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php if($_SESSION['role'] == 'admin'): ?>
+                <a id="host-link" href="./host.php">Dashboard</a>
+                <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+            <?php elseif (isset($_SESSION['username'])): ?>
+                <a id="host-link" href="./userDashboard.php">Dashboard</a>
+                <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+            <?php else: ?>
+                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
+                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php endif; ?>
         </div>
     </nav>
 
@@ -50,7 +75,7 @@
                 <p style="line-height: 1.3;">Brezovica, in the stunning Sharr Mountains, 
                     is perfect for year-round adventures—ski in winter, 
                     hike in summer, and explore its hidden gems with our expert guide.</p>
-                <a style="color: #0077B6;" id="brezovica-redirect" href="services.html#brezovica" target="_blank">See All</a>
+                <a style="color: #0077B6;" id="brezovica-redirect" href="services.html#brezovica" target="_blank">See More</a>
             </div>
 
             <div class="services-box">
@@ -61,7 +86,7 @@
                     verdant valleys, and a rich variety of wildlife. 
                     Perfect for hiking or serene getaways, our expert guide will help you uncover its breathtaking trails 
                     and hidden wonders.</p>
-                <a style="color: #0077B6;" href="services.html" target="_blank">See All</a>
+                <a style="color: #0077B6;" href="services.html#Sharr" target="_blank">See More</a>
             </div>
 
             <div class="services-box">
@@ -71,7 +96,7 @@
                 <p style="line-height: 1.3;">Rugova Canyon, with its towering cliffs and winding trails, 
                     is one of Kosovo's most stunning natural attractions. 
                     From breathtaking views to hidden waterfalls, let our guide reveal the best this canyon has to offer.</p>
-                <a style="color: #0077B6;" href="services.html" target="_blank">See All</a>
+                <a style="color: #0077B6;" href="services.html#Rugova" target="_blank">See More</a>
             </div>
         </div>
     </div>
@@ -124,6 +149,7 @@
     </footer>
     <script>
         const mobileNav = document.getElementById("mobile-nav");
+        const signOut = document.getElementById("signOutBtn");
 
         document.getElementById("menu-logo").addEventListener("click", () => {
             if(mobileNav.style.display == "flex"){
@@ -132,7 +158,15 @@
                 mobileNav.style.display = "flex";
             }
         })
+
+        signOut.addEventListener("click", () => {
+            Swal.fire({
+                title: "You are now logged out",
+                icon: "info",
+                timer: 1500
+          });
+        })
+
     </script>
 </body>
 </html>
-
