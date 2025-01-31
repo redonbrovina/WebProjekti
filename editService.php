@@ -6,20 +6,20 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("location: index.php");
 }
 
-$userId = $_GET['id'];
+$serviceId = $_GET['id'];
 
-include_once "Database/UserRepository.php";
-$userRepository = new UserRepository();
-$user = $userRepository->getUserById($userId);
+include_once "Database/ServiceRepository.php";
+
+$serviceRep = new ServiceRepository();
+$service = $serviceRep->getServiceById($serviceId);
 
 if(isset($_POST['editBtn'])){
     $id = $_POST['id'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    $gender = $_POST['gender'];
-    $email = $_POST['email'];
-    $phone = $_POST['phone'];
-    $userRepository->updateUser($id, $username, $password, $gender, $email, $phone);
+    $name = $_POST['name'];
+    $img = $_POST['img'];
+    $price = $_POST['price'];
+    $description = $_POST['description'];
+    $serviceRep->updateService($id, $name, $img, $price, $description);
     header("location: host.php");
 }
 
@@ -75,13 +75,11 @@ if(isset($_POST['editBtn'])){
 <body>
     <h2>Edit User Data</h2>
     <form action="" method="post">
-        <input type="text" name="id" value="<?=$user['id']?>" readonly> <br><br>
-        <input type="text" name="username" value="<?=$user['username']?>"> <br><br>
-        <input type="text" name="password" value="<?=$user['password']?>"> <br><br>
-        <input type="text" name="gender" maxlength="1" value="<?=$user['gender']?>" > <br><br>
-        <input type="text" name="email" value="<?=$user['email']?>" > <br><br>
-        <input type="text" name="phone" value="<?=$user['phone']?>" > <br><br>
-        <input type="text" name="role" value="<?=$user['role']?>" > <br><br>
+        <input type="text" name="id" value="<?=$service['id']?>" readonly> <br><br>
+        <input type="text" name="name" value="<?=$service['name']?>"> <br><br>
+        <input type="text" name="price" value="<?=$service['price']?>"> <br><br>
+        <input type="text" name="img" value="<?=$service['img']?>" > <br><br>
+        <input id='desc' type="text" name="description" value="<?=$service['description']?>"> <br><br>
         <input type="submit" name="editBtn" value="Save Changes" > <br><br>
     </form>
 </body>

@@ -16,7 +16,7 @@
     <main>
         <div class="main-content">
             <div class="content">
-                <a id="back-home" href="./index.html"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
+                <a id="back-home" href="./index.php"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
                 <img id="form-logo" src="./images/ACTN.png" alt="site-logo">
                 
                 <form action="Database/RegisterController.php" method="post">

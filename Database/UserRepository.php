@@ -98,13 +98,13 @@ class UserRepository {
         }
     }
 
-    function updateUser($id, $username, $password, $gender, $email, $phone){
+    function updateUser($id, $username, $password, $gender, $email, $phone, $role){
         $conn = $this->connection;
 
-        $sql = "UPDATE user SET username=?, password=?, gender=?, email=?, phone=? WHERE id=?";
+        $sql = "UPDATE user SET username=?, password=?, gender=?, email=?, phone=?, role=? WHERE id=?";
 
         $statement=$conn->prepare($sql);
-        $statement->execute([$username, $password, $gender, $email, $phone, $id]);
+        $statement->execute([$username, $password, $gender, $email, $phone, $role, $id]);
     }
 
     function deleteUser($id){

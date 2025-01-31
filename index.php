@@ -18,12 +18,12 @@ session_start();
 </head>
 <body>
     <nav>
-        <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
+        <a href="index.php"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="services.php" target="_blank">Services</a>
         </div>
 
         <div id="nav-right">
@@ -44,7 +44,7 @@ session_start();
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="services.php" target="_blank">Services</a>
             <?php if($_SESSION['role'] == 'admin'): ?>
                 <a id="host-link" href="./host.php">Dashboard</a>
                 <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
@@ -75,7 +75,7 @@ session_start();
                 <p style="line-height: 1.3;">Brezovica, in the stunning Sharr Mountains, 
                     is perfect for year-round adventures—ski in winter, 
                     hike in summer, and explore its hidden gems with our expert guide.</p>
-                <a style="color: #0077B6;" id="brezovica-redirect" href="services.html#brezovica" target="_blank">See More</a>
+                <a style="color: #0077B6;" id="brezovica-redirect" href="services.php#Brezovica" target="_blank">See More</a>
             </div>
 
             <div class="services-box">
@@ -86,7 +86,7 @@ session_start();
                     verdant valleys, and a rich variety of wildlife. 
                     Perfect for hiking or serene getaways, our expert guide will help you uncover its breathtaking trails 
                     and hidden wonders.</p>
-                <a style="color: #0077B6;" href="services.html#Sharr" target="_blank">See More</a>
+                <a style="color: #0077B6;" href="services.php#Sharr National Park" target="_blank">See More</a>
             </div>
 
             <div class="services-box">
@@ -96,7 +96,7 @@ session_start();
                 <p style="line-height: 1.3;">Rugova Canyon, with its towering cliffs and winding trails, 
                     is one of Kosovo's most stunning natural attractions. 
                     From breathtaking views to hidden waterfalls, let our guide reveal the best this canyon has to offer.</p>
-                <a style="color: #0077B6;" href="services.html#Rugova" target="_blank">See More</a>
+                <a style="color: #0077B6;" href="services.php#Rugova Canyon" target="_blank">See More</a>
             </div>
         </div>
     </div>

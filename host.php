@@ -1,5 +1,6 @@
 <?php
 include_once 'Database/UserRepository.php';
+include_once 'Database/ServiceRepository.php';
 
 session_start();
 
@@ -74,6 +75,9 @@ if($_SESSION['role'] !== 'admin'){
             </div>
             <div class="content-container" id="products">
                 <h3>Products: </h3>
+                <div class="content-commands">
+                    <button class="command-btn">Add new product</button>
+                </div>
                 <table>
                     <tr>
                         <th>ID</th>
@@ -82,25 +86,43 @@ if($_SESSION['role'] !== 'admin'){
                         <th style="text-decoration: underline;">Edit Data</th>
                         <th style="text-decoration: underline;">Delete User</th>
                     </tr>
+
                 </table>
-                <div class="content-commands">
-                    <button class="command-btn">Add new product</button>
-                </div>
             </div>
+
             <div class="content-container" id="services">
                 <h3>Services: </h3>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th></th>
-                        <th></th>
-                        <th style="text-decoration: underline;">Edit Data</th>
-                        <th style="text-decoration: underline;">Delete User</th>
-                    </tr>
-                </table>
                 <div class="content-commands">
                     <a href="./registerService.php"><button class="command-btn">Add new service</button></a>
                 </div>
+
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th style="text-decoration: underline;">Edit Data</th>
+                        <th style="text-decoration: underline;">Delete Service</th>
+                    </tr>
+
+                    <?php
+                    
+                    $serviceRep = new ServiceRepository();
+                    $services = $serviceRep->getAllServices();
+
+                    foreach($services as $service){
+                        echo "
+                            <tr>
+                                <td>{$service['id']}</td>
+                                <td>{$service['name']}</td>
+                                <td>{$service['price']} $</td>
+                                <td><a href='editService.php?id={$service['id']}'><img style='width=10%;' class='icons' src='images/iconsedit.png'></a></td>
+                                <td><a href='javascript:void(0)' onclick='confirmDeleteService({$service['id']})'><img style='width:10%;' class='icons' src='images/icon-trash.png'></a></td>
+                            </tr>
+                        ";
+                    }
+                    ?>
+                </table>
             </div>
             <div class="content-container" id="users">
                 <h3>Users: </h3>
@@ -114,6 +136,7 @@ if($_SESSION['role'] !== 'admin'){
                         <th>Email</th>
                         <th>Gender</th>
                         <th>Phone</th>
+                        <th>Role</th>
                         <th style="text-decoration: underline;">Edit Data</th>
                         <th style="text-decoration: underline;">Delete User</th>
                     </tr>
@@ -131,8 +154,9 @@ if($_SESSION['role'] !== 'admin'){
                                 <td>{$user['email']}</td>
                                 <td>{$user['gender']}</td>
                                 <td>{$phone}</td>
+                                <td>{$user['role']}</td>
                                 <td><a href='edit.php?id={$user['id']}'><img class='icons' src='images/iconsedit.png'></a></td>
-                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='images/icon-trash.png'</a></td>
+                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='images/icon-trash.png'></a></td>
                             </tr>
                         ";
                     }
@@ -169,7 +193,7 @@ if($_SESSION['role'] !== 'admin'){
         })
 
         servicesBtn.addEventListener("click", ()=> {
-            servicesDiv.style.display = "flex";
+            servicesDiv.style.display = "block";
             productsDiv.style.display = "none";
             usersDiv.style.display = "none";
             welcomeDiv.style.display = "none";
@@ -187,12 +211,17 @@ if($_SESSION['role'] !== 'admin'){
         }
 
         function confirmDelete(userId) {
-        const confirm = confirm("Are you sure you want to delete this user?");
-        
-        if (confirm) {
-            window.location.href = 'delete.php?id=' + userId;
+            if (confirm("Are you sure you want to delete this user?")) {
+                window.location.href = 'delete.php?id=' + userId;
+            }
         }
-    }
+
+        function confirmDeleteService(serviceId){
+            if(confirm("Are you sure you want to delete this service")){
+                window.location.href='deleteService.php?id=' + serviceId;
+            }
+        }
+
     </script>
 </body>
 </html>

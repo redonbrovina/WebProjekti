@@ -39,19 +39,42 @@ class ServiceRepository {
     }
 
     function getAllServices() {
+        $conn = $this->connection;
+        $sql = "SELECT * FROM service";
 
+        $statement = $conn->query($sql);
+
+        $services = $statement->fetchAll();
+
+        return $services;
     }
 
     function getServiceById($id){
+        $conn = $this->connection;
+        $sql = "SELECT * FROM service WHERE id = '$id'";
 
+        $statement = $conn->query($sql);
+
+        $service = $statement->fetch();
+        return $service;
     }
 
-    function updateService(){
+    function updateService($id, $name, $img, $price, $description){
+        $conn = $this->connection;
 
+        $sql = "UPDATE service SET name=?, img=?, price=?, description=? WHERE id=?";
+
+        $statement=$conn->prepare($sql);
+        $statement->execute([$name, $img, $price, $description, $id]);
     }
 
-    function deleteService(){
-    
+    function deleteService($id){
+        $conn = $this->connection;
+
+        $sql = "DELETE FROM service where id=?";
+
+        $statement = $conn->prepare($sql);
+        $statement->execute([$id]);
     }
 }
 

@@ -175,7 +175,8 @@ main > h1 {
 
 #services {
     display: none;
-    flex-direction: column;
+    margin: auto;
+    width: 100%;
 }
 
 #users {
@@ -193,7 +194,7 @@ table {
 
 th{
     border: 1px solid #7393B3;
-    padding: 0.4rem;
+    padding: 0.3rem;
     background-color: #0d47a1;
     color: white;
 }

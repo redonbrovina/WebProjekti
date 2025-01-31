@@ -1,5 +1,8 @@
 <?php 
 
+include_once "Database/ServiceRepository.php";
+
+session_start();
 
 ?>
 
@@ -14,10 +17,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <nav>
+<nav>
         <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
@@ -27,16 +30,34 @@
         </div>
 
         <div id="nav-right">
-            <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
-            <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php if(isset($_SESSION['role'])):?> 
+                <?php if($_SESSION['role'] == 'admin'):?>
+                    <a id="host-link" href="./host.php">Dashboard</a>
+                    <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+                <?php else:?>
+                    <a id="host-link" href="./userDashboard.php">Dashboard</a>
+                    <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+                <?php endif; ?>
+            <?php else: ?>
+                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
+                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php endif; ?>
         </div>
         <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
             <a href="services.html" target="_blank">Services</a>
-            <a id="form-redirect" href="form.html" target="_blank">Sign in</a>
-            <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php if($_SESSION['role'] == 'admin'): ?>
+                <a id="host-link" href="./host.php">Dashboard</a>
+                <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+            <?php elseif (isset($_SESSION['username'])): ?>
+                <a id="host-link" href="./userDashboard.php">Dashboard</a>
+                <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+            <?php else: ?>
+                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
+                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+            <?php endif; ?>
         </div>
     </nav>
     <main>
@@ -56,75 +77,52 @@
             </div>
         </div>
 
-        <div class="services-container">
-            <div class="service-box" id="brezovica">
-                <h1>Brezovica</h1>
-                <div class="service-content"> 
-                    <img class="service-box-img" src="./images/brezovica.jpg" alt="Brezovica">
-                    <div class="service-box-description">
-                        <p>Brezovica, nestled in the breathtaking Sharr Mountains, is a year-round haven for adventurers. During the winter months, its pristine ski slopes offer thrilling opportunities for snow sports, while in the summer, the region transforms into a hiker's paradise with scenic trails that showcase its natural beauty. Beyond the well-known trails, Brezovica hides many untouched gems waiting to be explored, from serene alpine lakes to panoramic viewpoints. With our expert guide, you’ll experience the best of Brezovica, uncovering the hidden wonders that make this mountain destination truly unforgettable.</p>
-                        <div>
-                            <button class="btn-book">Book Now</button>
-                            <p class="price">$60</p>
+        <?php 
+        
+        $serviceRep = new ServiceRepository();
+        $services = $serviceRep->getAllServices();
+
+        foreach($services as $service){
+            if(isset($_SESSION['role'])){
+                echo "
+                <div class='services-container'>
+                    <div class='service-box' id='{$service['name']}'>
+                        <h1>{$service['name']}</h1>
+                        <div class='service-content'>
+                            <img class='service-box-img' src={$service['img']} alt='{$service['name']}'>
+                            <div class='service-box-description'>
+                                <p>{$service['description']}</p>
+                                <div>
+                                    <button class='btn-book' onclick='booked()'>Book Now</button>
+                                    <p class='price'>$ {$service['price']}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="service-box" id="Sharr">
-                <h1>Sharr National Park</h1>
-                <div class="service-content"> 
-                    <img class="service-box-img" src="./images/Sharr.jpg" alt="Sharri">
-                    <div class="service-box-description">
-                        <p>Sharr National Park, a true paradise for nature enthusiasts, features dramatic peaks, lush valleys, and a rich array of wildlife. 
-                            Ideal for hiking, wildlife spotting, and simply soaking in the panoramic mountain vistas, the park offers something for every adventurer. 
-                            From hidden trails to serene lakes, the beauty of Sharr’s landscape is waiting to be explored. 
-                            With our expert guide, you’ll discover the park’s most breathtaking and lesser-known treasures,
-                             ensuring a truly immersive experience in one of Kosovo’s most stunning natural wonders.</p>
-                        <div>
-                            <button class="btn-book">Book Now</button>
-                            <p class="price">$120</p>
+                ";
+            }else{
+                echo "
+                <div class='services-container'>
+                    <div class='service-box' id='{$service['name']}'>
+                        <h1>{$service['name']}</h1>
+                        <div class='service-content'>
+                            <img class='service-box-img' src={$service['img']} alt='{$service['name']}'>
+                            <div class='service-box-description'>
+                                <p>{$service['description']}</p>
+                                <div>
+                                    <a href='form.php'><button class='btn-book'>Book Now</button></a> 
+                                    <p class='price'>$ {$service['price']}</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="service-box" id="Rugova">
-                <h1>Rugova Canyon</h1>
-                <div class="service-content"> 
-                    <img class="service-box-img" src="./images/Rugova_Canyon.jpg" alt="Rugova">
-                    <div class="service-box-description">
-                        <p>Rugova Canyon, located near the picturesque town of Peja, is a stunning natural wonder known for its towering cliffs,
-                             meandering trails, and cascading waterfalls. A haven for outdoor enthusiasts, it offers exceptional opportunities for hiking,
-                              climbing, and photography, with each turn revealing breathtaking vistas. The canyon’s rugged beauty, combined with its serene atmosphere,
-                               makes it an ideal spot for nature lovers and adventure seekers alike. With our expert guide, you'll be led to the most captivating spots,
-                                ensuring you experience the canyon’s hidden gems and scenic highlights</p>
-                        <div>
-                            <button class="btn-book">Book Now</button>
-                            <p class="price">$140</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-box" id="Luboteni">
-                <h1>Luboteni</h1>
-                <div class="service-content"> 
-                    <img class="service-box-img" src="./images/luboteni.jpg" alt="Luboteni">
-                    <div class="service-box-description">
-                        <p>Luboten, one of the highest peaks in the Sharr Mountains, offers stunning panoramic views of Kosovo and North Macedonia. 
-                            Its challenging trails reward hikers with alpine meadows, rugged landscapes, and serene surroundings. 
-                            Whether you're conquering the summit or enjoying the scenic paths, 
-                            Luboten promises an unforgettable adventure. Our expert guide will lead you to the most breathtaking viewpoints and hidden spots along the way.</p>
-                        <div>
-                            <button class="btn-book">Book Now</button>
-                            <p class="price">$100</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
+                ";
+            }
+        }
+        
+        ?>
     </main>
 
     <footer>
@@ -161,6 +159,16 @@
                 mobileNav.style.display = "flex";
             }
         })
+
+        function booked() {
+            Swal.fire({
+                title: "Service has been booked",
+                text: "Go to dashboard to view orders or proceed to checkout.",
+                icon: "success"
+            });
+        }
+        
+        
     </script>
 </body>
 </html>

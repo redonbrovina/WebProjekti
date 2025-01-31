@@ -2,6 +2,13 @@
 include_once 'Database/LoginController.php';
 include_once 'Database/UserRepository.php';
 
+session_start();
+
+if(isset($_SESSION['username'])){
+    header('Location: index.php');
+    exit;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +28,7 @@ include_once 'Database/UserRepository.php';
         <div class="main-content">
             <div class="content">
                 <form action="Database/LoginController.php" method="POST">
-                    <a id="back-home" href="./index.html"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
+                    <a id="back-home" href="./index.php"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
                     <img id="form-logo" src="./images/ACTN.png" alt="">
                     <input id="user" type="text" name="username" placeholder="Username...">
                     <input id="pass" type="password" name="password" placeholder="Password...">
