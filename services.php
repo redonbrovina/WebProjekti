@@ -1,3 +1,9 @@
+<?php 
+
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,11 +62,7 @@
                 <div class="service-content"> 
                     <img class="service-box-img" src="./images/brezovica.jpg" alt="Brezovica">
                     <div class="service-box-description">
-                        <p>Brezovica, nestled in the breathtaking Sharr Mountains, is a year-round haven for adventurers. 
-                            During the winter months, its pristine ski slopes offer thrilling opportunities for snow sports, while in the summer, 
-                            the region transforms into a hiker's paradise with scenic trails that showcase its natural beauty. Beyond the well-known trails, 
-                            Brezovica hides many untouched gems waiting to be explored, from serene alpine lakes to panoramic viewpoints. 
-                            With our expert guide, you’ll experience the best of Brezovica, uncovering the hidden wonders that make this mountain destination truly unforgettable.</p>
+                        <p>Brezovica, nestled in the breathtaking Sharr Mountains, is a year-round haven for adventurers. During the winter months, its pristine ski slopes offer thrilling opportunities for snow sports, while in the summer, the region transforms into a hiker's paradise with scenic trails that showcase its natural beauty. Beyond the well-known trails, Brezovica hides many untouched gems waiting to be explored, from serene alpine lakes to panoramic viewpoints. With our expert guide, you’ll experience the best of Brezovica, uncovering the hidden wonders that make this mountain destination truly unforgettable.</p>
                         <div>
                             <button class="btn-book">Book Now</button>
                             <p class="price">$60</p>

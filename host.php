@@ -1,4 +1,5 @@
 <?php
+include_once 'Database/UserRepository.php';
 
 session_start();
 
@@ -61,31 +62,96 @@ if($_SESSION['role'] !== 'admin'){
     </nav>
 
     <main>
-        <h1>Welcome, <?php echo $_SESSION['username']?></h1>
+        <div id="host-menu">
+            <button class="menu-btn" id="productsBtn">Products</button>
+            <button class="menu-btn" id="servicesBtn">Services</button>
+            <button class="menu-btn" id="usersBtn">Users</button>
+        </div>
         <div id="content">
-            <div class="content-container">
+            <div class="content-container" id="welcome-div">
+                <h1 style="text-align:center; padding-top: 2rem;">Welcome to the Dashboard, <?php echo $_SESSION['username']?></h1>
+                <h4 style="text-align:center; color: gray;">Choose what you want to view in the menu above</h4>
+            </div>
+            <div class="content-container" id="products">
                 <h3>Products: </h3>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th style="text-decoration: underline;">Edit Data</th>
+                        <th style="text-decoration: underline;">Delete User</th>
+                    </tr>
+                </table>
                 <div class="content-commands">
-                    <button class="command-btn">Add a product</button>
+                    <button class="command-btn">Add new product</button>
                 </div>
             </div>
-            <div class="content-container">
+            <div class="content-container" id="services">
                 <h3>Services: </h3>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th></th>
+                        <th></th>
+                        <th style="text-decoration: underline;">Edit Data</th>
+                        <th style="text-decoration: underline;">Delete User</th>
+                    </tr>
+                </table>
                 <div class="content-commands">
-                    <button class="command-btn">Add a service</button>
+                    <a href="./registerService.php"><button class="command-btn">Add new service</button></a>
                 </div>
             </div>
-            <div class="content-container">
+            <div class="content-container" id="users">
                 <h3>Users: </h3>
                 <div class="content-commands">
-                    <button class="command-btn">Add a user</button>
+                    <a href="./register-form.php" target="_blank"><button class="command-btn">Add new user</button></a>
                 </div>
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Phone</th>
+                        <th style="text-decoration: underline;">Edit Data</th>
+                        <th style="text-decoration: underline;">Delete User</th>
+                    </tr>
+                    <?php
+                    $userRep = new UserRepository();
+                    $users = $userRep->getAllUsers();
+
+                    $phone = $users['phone'] ?? "N/A";
+
+                    foreach($users as $user){
+                        echo "
+                            <tr>
+                                <td>{$user['id']}</td>
+                                <td>{$user['username']}</td>
+                                <td>{$user['email']}</td>
+                                <td>{$user['gender']}</td>
+                                <td>{$phone}</td>
+                                <td><a href='edit.php?id={$user['id']}'><img class='icons' src='images/iconsedit.png'></a></td>
+                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='images/icon-trash.png'</a></td>
+                            </tr>
+                        ";
+                    }
+                    ?>
+                </table>
             </div>
         </div>
     </main>
 
     <script>
         const mobileNav = document.getElementById("mobile-nav");
+        const productsDiv = document.getElementById("products");
+        const servicesDiv = document.getElementById("services");
+        const usersDiv = document.getElementById("users");
+        const welcomeDiv = document.getElementById("welcome-div");
+
+        const productsBtn = document.getElementById("productsBtn");
+        const servicesBtn = document.getElementById("servicesBtn");
+        const usersBtn = document.getElementById("usersBtn");
 
         document.getElementById("menu-logo").addEventListener("click", () => {
             if(mobileNav.style.display == "flex"){
@@ -94,6 +160,39 @@ if($_SESSION['role'] !== 'admin'){
                 mobileNav.style.display = "flex";
             }
         })
+
+        productsBtn.addEventListener("click", ()=> {
+            productsDiv.style.display = "flex";
+            servicesDiv.style.display = "none";
+            usersDiv.style.display = "none";
+            welcomeDiv.style.display = "none";
+        })
+
+        servicesBtn.addEventListener("click", ()=> {
+            servicesDiv.style.display = "flex";
+            productsDiv.style.display = "none";
+            usersDiv.style.display = "none";
+            welcomeDiv.style.display = "none";
+        })
+
+        usersBtn.addEventListener("click", ()=> {
+            usersDiv.style.display = "flex";                
+            productsDiv.style.display = "none";                
+            servicesDiv.style.display = "none";  
+            welcomeDiv.style.display = "none";              
+        })
+
+        function alertDelete() {
+            alert("Are you sure you want to delete this item?");
+        }
+
+        function confirmDelete(userId) {
+        const confirm = confirm("Are you sure you want to delete this user?");
+        
+        if (confirm) {
+            window.location.href = 'delete.php?id=' + userId;
+        }
+    }
     </script>
 </body>
 </html>

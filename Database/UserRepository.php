@@ -97,6 +97,23 @@ class UserRepository {
             return false;
         }
     }
+
+    function updateUser($id, $username, $password, $gender, $email, $phone){
+        $conn = $this->connection;
+
+        $sql = "UPDATE user SET username=?, password=?, gender=?, email=?, phone=? WHERE id=?";
+
+        $statement=$conn->prepare($sql);
+        $statement->execute([$username, $password, $gender, $email, $phone, $id]);
+    }
+
+    function deleteUser($id){
+        $conn = $this->connection;
+        $sql = "DELETE FROM user WHERE id=?";
+        $statement=$conn->prepare($sql);
+
+        $statement->execute([$id]);
+    }
 }
 
 ?>

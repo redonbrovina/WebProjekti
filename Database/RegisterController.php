@@ -1,7 +1,9 @@
 <?php 
 
 include_once 'User.php';
+include_once 'Service.php';
 include_once 'UserRepository.php';
+include_once 'ServiceRepository.php';
 
 if(isset($_POST["registerBtn"])){
     if(empty($_POST["username"]) || empty($_POST["password"]) || empty($_POST["gender"]) ||
@@ -16,6 +18,7 @@ if(isset($_POST["registerBtn"])){
         $phone = $_POST['phone'];
     }else{
         echo "Enter the correct Email Format!";
+        exit;
     }
 
     $id = $username . rand(100, 999);
@@ -34,6 +37,35 @@ if(isset($_POST["registerBtn"])){
     }else{
         echo "<script>alert('Registration failed!')</script>";
     }
+}
 
+
+if(isset($_POST["registerServiceBtn"])){
+    if(empty($_POST["name"]) || empty($_POST["img"]) || empty($_POST["price"]) ||
+    empty($_POST["description"])){
+        echo "Fill All Fields!";
+        exit;
+    }else{
+        $name = $_POST['name'];
+        $img = $_POST['img'];
+        $price = $_POST['price'];
+        $description = $_POST['description'];
+    }
+
+    $id = $name . rand(100, 999);
+    $service = new Service($id, $name, $img, $price, $description);
+
+    $serviceRep = new ServiceRepository();
+
+    $serviceRep->insertService($service);
+    $url = "../host.php";
+
+    if($serviceRep){
+        sleep(1);
+        header("Location: $url");
+        exit;
+    }else{
+        echo "<script>alert('Registration Failed!')</script>";
+    }
 }
 ?>
