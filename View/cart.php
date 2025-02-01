@@ -100,7 +100,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['produc
     <footer>
         <div class="footer">
             <div id="footer-left">
-                <img class="footer-img" src="./images/ACTN-footer.png" alt="site-logo">
+                <img class="footer-img" src="../images/ACTN-footer.png" alt="site-logo">
                 <p>Experience the soul of the land.</p>
             </div>
             <div id="footer-right">

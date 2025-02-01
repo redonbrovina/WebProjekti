@@ -21,15 +21,16 @@ if($_SESSION['role'] !== 'user'){
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Marcellus&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <nav>
         <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="shop.php" target="_blank">Shop</a>
+            <a href="about.php" target="_blank">About Us</a>
+            <a href="services.php" target="_blank">Services</a>
         </div>
 
         <div id="nav-right">
@@ -100,7 +101,7 @@ if($_SESSION['role'] !== 'user'){
                         <tr>
                             <td>{$name['name']}</td>
                             <td>{$order['quantity']}</td>
-                            <td>{$price['price']}</td>
+                            <td>{$price['price']} $</td>
                             <td>{$order['order_date']}</td>
                             <td><a href='javascript:void(0);' onclick='confirmDelete({$order['id']})'><img style='width:20%' src='../images/icon-cancel.png'></a></td>
                         </tr>
@@ -114,7 +115,7 @@ if($_SESSION['role'] !== 'user'){
                 echo "<h2>Total Price: {$totalPrice} $</h2>"
                 
                 ?>
-        <button class="btn-base">Proceed to checkout</button>
+        <button id="proceed" class="btn-base" onclick="purchaseConfirm()">Proceed to checkout</button>
     </main>
 
     <script>
@@ -131,6 +132,19 @@ if($_SESSION['role'] !== 'user'){
         function confirmDelete(orderId){
             if(confirm("Are you sure you want to delete this order?")){
                 window.location.href = 'deleteOrder.php?id=' + orderId;
+            }
+        }
+
+        function purchaseConfirm() {
+            if(confirm("You are about to confirm purchase of your orders. Click OK to proceed to checkout.")){
+                Swal.fire({
+                    title: "Your purchase was succesful!",
+                    text: "Thank you for choosing Autochthonous",
+                    icon: "success",
+                    willClose: ()=> {
+                        window.location.href = 'purchase.php';
+                    }
+                })
             }
         }
     </script>

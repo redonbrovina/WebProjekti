@@ -59,24 +59,5 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-    const mobileNav = document.getElementById("mobile-nav");
-    const signOut = document.getElementById("signOutBtn");
-    let index = 0;
-
-document.getElementById("menu-logo").addEventListener("click", () => {
-     if(mobileNav.style.display == "flex"){
-        mobileNav.style.display = "none";
-    }else{
-         mobileNav.style.display = "flex";
-    }
-})
-
-signOut.addEventListener("click", () => {
-    Swal.fire({
-        title: "You are now logged out",
-        icon: "info",
-        timer: 1500
-    });
-})
 
     

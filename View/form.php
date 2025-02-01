@@ -34,7 +34,7 @@ if(isset($_SESSION['username'])){
                     <input id="pass" type="password" name="password" placeholder="Password...">
                     <p id="error-txt"></p>
                     <button name="loginBtn" type="submit" class="btn-base">Sign In</button>
-                    <p id="bottom-txt">Don't have an account? <a href="register-form.php" target="_blank">Create one!</a></p>
+                    <p id="bottom-txt">Don't have an account? <a href="register-form.php" >Create one!</a></p>
                 </form>
             </div>
         </div>

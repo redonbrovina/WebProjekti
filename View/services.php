@@ -24,9 +24,9 @@ session_start();
         <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
-            <a href="services.php" target="_blank">Services</a>
+            <a href="shop.php">Shop</a>
+            <a href="about.php">About Us</a>
+            <a href="services.php">Services</a>
         </div>
 
         <div id="nav-right">
@@ -39,15 +39,15 @@ session_start();
                     <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
                 <?php endif; ?>
             <?php else: ?>
-                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
-                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+                <a id="form-redirect" href="form.php">Sign in</a>
+                <a href="./register-form.php"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
         <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="shop.php">Shop</a>
+            <a href="about.php">About Us</a>
+            <a href="services.php">Services</a>
             <?php if($_SESSION['role'] == 'admin'): ?>
                 <a id="host-link" href="./host.php">Dashboard</a>
                 <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
@@ -55,8 +55,8 @@ session_start();
                 <a id="host-link" href="./userDashboard.php">Dashboard</a>
                 <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
             <?php else: ?>
-                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
-                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+                <a id="form-redirect" href="form.php">Sign in</a>
+                <a href="./register-form.php"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
     </nav>
@@ -169,8 +169,6 @@ session_start();
                     window.location.href = 'addOrder.php?serviceid='+serviceId;
                 }
             });
-
-
 
         }
         

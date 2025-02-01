@@ -26,8 +26,8 @@ if($_SESSION['role'] !== 'admin'){
         <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
+            <a href="shop.php" target="_blank">Shop</a>
+            <a href="about.php" target="_blank">About Us</a>
             <a href="services.php" target="_blank">Services</a>
         </div>
 
@@ -47,8 +47,8 @@ if($_SESSION['role'] !== 'admin'){
         </div>
         <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
+            <a href="shop.php" target="_blank">Shop</a>
+            <a href="about.php" target="_blank">About Us</a>
             <a href="services.php" target="_blank">Services</a>
             <?php if($_SESSION['role'] == 'admin'): ?>
                 <a id="host-link" href="./host.php">Dashboard</a>
@@ -65,7 +65,6 @@ if($_SESSION['role'] !== 'admin'){
 
     <main>
         <div id="host-menu">
-            <button class="menu-btn" id="productsBtn">Products</button>
             <button class="menu-btn" id="servicesBtn">Services</button>
             <button class="menu-btn" id="usersBtn">Users</button>
             <button class="menu-btn" id="ordersBtn">Orders</button>
@@ -74,22 +73,6 @@ if($_SESSION['role'] !== 'admin'){
             <div class="content-container" id="welcome-div">
                 <h1 style="text-align:center; padding-top: 2rem;">Welcome to the Dashboard, <?php echo $_SESSION['username']?></h1>
                 <h4 style="text-align:center; color: gray;">Choose what you want to view in the menu above</h4>
-            </div>
-            <div class="content-container" id="products">
-                <h3>Products: </h3>
-                <div class="content-commands">
-                    <button class="command-btn">Add new product</button>
-                </div>
-                <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th style="text-decoration: underline;">Edit Data</th>
-                        <th style="text-decoration: underline;">Delete User</th>
-                    </tr>
-
-                </table>
             </div>
 
             <div class="content-container" id="services">
@@ -191,7 +174,6 @@ if($_SESSION['role'] !== 'admin'){
                             $price = $ServiceRep->getServicePriceById($order['service_id']);
                             $user = $UserRep->getUserById($order['user_id']);
                             $truePrice = $price['price'] * $order['quantity'];
-
                             echo "
                                 <tr>
                                     <td>{$order['id']}</td>    
@@ -215,13 +197,11 @@ if($_SESSION['role'] !== 'admin'){
 
     <script>
         const mobileNav = document.getElementById("mobile-nav");
-        const productsDiv = document.getElementById("products");
         const servicesDiv = document.getElementById("services");
         const usersDiv = document.getElementById("users");
         const welcomeDiv = document.getElementById("welcome-div");
         const ordersDiv = document.getElementById("orders");
 
-        const productsBtn = document.getElementById("productsBtn");
         const servicesBtn = document.getElementById("servicesBtn");
         const usersBtn = document.getElementById("usersBtn");
         const ordersBtn = document.getElementById("ordersBtn");
@@ -234,33 +214,22 @@ if($_SESSION['role'] !== 'admin'){
             }
         })
 
-        productsBtn.addEventListener("click", ()=> {
-            productsDiv.style.display = "flex";
-            servicesDiv.style.display = "none";
-            usersDiv.style.display = "none";
-            welcomeDiv.style.display = "none";
-            ordersDiv.style.display = "none"; 
-        })
-
         servicesBtn.addEventListener("click", ()=> {
             servicesDiv.style.display = "block";
-            productsDiv.style.display = "none";
             usersDiv.style.display = "none";
             welcomeDiv.style.display = "none";
             ordersDiv.style.display = "none"; 
         })
 
         usersBtn.addEventListener("click", ()=> {
-            usersDiv.style.display = "flex";                
-            productsDiv.style.display = "none";                
+            usersDiv.style.display = "flex";                               
             servicesDiv.style.display = "none";  
             welcomeDiv.style.display = "none";
             ordersDiv.style.display = "none";               
         })
 
         ordersBtn.addEventListener("click", ()=> {
-            usersDiv.style.display = "none";                
-            productsDiv.style.display = "none";                
+            usersDiv.style.display = "none";                          
             servicesDiv.style.display = "none";  
             welcomeDiv.style.display = "none";
             ordersDiv.style.display = "flex";              

@@ -26,7 +26,7 @@ $OrderRep->insertOrder($newOrder);
 if($serviceId){
     header('Location: services.php');
 }else{
-    header('Location: shop.html');
+    header('Location: shop.php');
 }
 
 

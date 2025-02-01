@@ -21,9 +21,9 @@ session_start();
         <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
-            <a href="services.php" target="_blank">Services</a>
+            <a href="shop.php">Shop</a>
+            <a href="about.php">About Us</a>
+            <a href="services.php">Services</a>
         </div>
 
         <div id="nav-right">
@@ -36,15 +36,15 @@ session_start();
                     <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
                 <?php endif; ?>
             <?php else: ?>
-                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
-                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+                <a id="form-redirect" href="form.php">Sign in</a>
+                <a href="./register-form.php"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
         <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
-            <a href="shop.html" target="_blank">Shop</a>
-            <a href="about.html" target="_blank">About Us</a>
-            <a href="services.php" target="_blank">Services</a>
+            <a href="shop.php">Shop</a>
+            <a href="about.php">About Us</a>
+            <a href="services.php">Services</a>
             <?php if(isset($_SESSION['role'])): ?>
                 <?php if($_SESSION['role'] == 'admin'): ?>
                     <a id="host-link" href="./host.php">Dashboard</a>
@@ -54,8 +54,8 @@ session_start();
                     <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
                 <?php endif; ?>
             <?php else: ?>
-                <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
-                <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
+                <a id="form-redirect" href="form.php" >Sign in</a>
+                <a href="./register-form.php" ><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
     </nav>
@@ -93,7 +93,7 @@ session_start();
                 <button onclick={goForward()}>></button>
             </div>
 
-            <a href="services.php" target="_blank"><button class="btn-base">See our services</button></a>
+            <a href="services.php"><button class="btn-base">See our services</button></a>
         </div>
     </div>
 
@@ -117,7 +117,7 @@ session_start();
             </div>
         </div>
 
-        <a href="./shop.html" target="_blank"><button class="btn-base">See All</button></a>
+        <a href="./shop.html"><button class="btn-base">See All</button></a>
     </div>
 
     <footer>

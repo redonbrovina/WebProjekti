@@ -46,7 +46,7 @@
                         <p id="error-txt"></p>
                         <button name="registerBtn" type="submit" class="btn-base" onclick="enterData()">Sign Up</button>
                     </div>
-                    <p id="bottom-txt">Already have an account? <a href="form.html" target="_blank">Sign in!</a></p>
+                    <p id="bottom-txt">Already have an account? <a href="form.php">Sign in!</a></p>
                 </form>    
             </div>
         </div>

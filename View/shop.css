@@ -15,7 +15,6 @@ nav {
     align-items: center;
 }
 
-
 #nav-logo {
     width: 7.8125em;
     height: auto;
@@ -45,16 +44,32 @@ nav {
     gap: 3.125rem;
     align-items: center;
 }
-
-#nav-right > a {
+#form-redirect {
     text-decoration: none;
     color: gray;
 }
 
-#nav-right > a:hover {
+#form-redirect:hover {
     color: black;
     text-decoration: underline;
     transition: 0.3s;
+}
+
+#menu-logo {
+    display: none;
+}
+
+#mobile-nav {
+    display: none;
+}
+#user-txt {
+    color: gray;
+    font-size: 1rem;
+}
+
+#host-link {
+    color: gray;
+    text-decoration: none;
 }
 
 .btn-base {
@@ -127,4 +142,98 @@ footer > label {
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+
+
+@media(max-width:1024px){
+    nav {
+        font-size: smaller;
+    }
+
+    #footer-right {
+        gap: 3.4rem;
+        font-size: 0.8rem;
+    }
+
+    #footer-left { 
+        max-width: 16rem;
+    }
+
+    footer > label {
+        padding-top: 1.5rem;
+    }
+
+    #user-txt {
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width: 480px){
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #nav-submenu, #nav-right {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: none;
+        width: 100%;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    #mobile-nav > a {
+        color: #4A4A4A;
+        text-decoration: none;
+        display: block;
+        margin: auto;
+        text-align: center;
+        margin-top: 0.6rem;
+    }
+
+    #mobile-nav > a > button {
+        font-size: smaller;
+        padding: 0.6rem;
+        height: auto;
+    }
+
+    #menu-logo {
+        display: flex;
+        width: 1.3rem;
+        height: auto;
+        cursor: pointer;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    #footer-right {
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 2rem;
+        justify-content: center;
+        font-size: 0.8rem;
+        margin-bottom: 1.55rem;
+    }
+
+    #footer-left { 
+        width: 100%;
+    }
+
+    .footer-img {
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    #footer-right > div{
+        padding: 0.6rem;
+    }
+
 }

@@ -8,21 +8,22 @@ nav {
     background-color: #FFFFFF;
     color: #0d47a1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 10px 50px;
+    padding: 0.625rem 3.125rem;
     align-items: center;
 }
 
-
 #nav-logo {
-    width: 125px;
-    height: 45px;
+    width: 7.8125em;
+    height: auto;
 }
 
 #nav-submenu {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    gap: 50px;
+    gap: 3.125rem;
 }
 
 #nav-submenu > a {
@@ -38,19 +39,36 @@ nav {
 
 #nav-right {
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap;
+    gap: 3.125rem;
     align-items: center;
 }
-
-#nav-right > a {
+#form-redirect {
     text-decoration: none;
     color: gray;
 }
 
-#nav-right > a:hover {
+#form-redirect:hover {
     color: black;
     text-decoration: underline;
     transition: 0.3s;
+}
+
+#menu-logo {
+    display: none;
+}
+
+#mobile-nav {
+    display: none;
+}
+#user-txt {
+    color: gray;
+    font-size: 1rem;
+}
+
+#host-link {
+    color: gray;
+    text-decoration: none;
 }
 
 .btn-base {
@@ -160,4 +178,102 @@ footer > label {
     justify-content: baseline;
     align-items: start;
     gap: 9.375rem;
+}
+
+
+@media(max-width:1024px){
+    nav {
+        font-size: smaller;
+    }
+    #footer-right {
+        gap: 3.4rem;
+        font-size: 0.8rem;
+    }
+
+    #footer-left { 
+        max-width: 16rem;
+    }
+
+    footer > label {
+        padding-top: 1.5rem;
+    }
+
+    #user-txt {
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width:480px){
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #nav-submenu, #nav-right {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        padding: 0;
+        padding-top: 4px;
+    }
+
+    #mobile-nav > a {
+        color: #4A4A4A;
+        text-decoration: none;
+    }
+
+    #mobile-nav > a > button {
+        font-size: smaller;
+        padding: 0.6rem;
+        height: auto;
+    }
+
+    #menu-logo {
+        display: flex;
+        width: 1.3rem;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #user-txt {
+        margin: 0;
+        color: #4A4A4A;
+        font-size: 0.9rem;
+        font-family: Marcellus, sans-serif;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    #footer-right {
+        align-items: center;
+        width: 100%;
+        gap: 1rem;
+        padding-top: 2rem;
+        justify-content: center;
+        font-size: 0.8rem;
+        margin-bottom: 1.55rem;
+    }
+
+    #footer-left { 
+        width: 100%;
+    }
+
+    .footer-img {
+        width: 100%;
+        display: block;
+        margin: auto;
+    }
+
+    #footer-right > div{
+        padding: 0.6rem;
+    }
 }

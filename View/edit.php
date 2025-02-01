@@ -19,7 +19,8 @@ if(isset($_POST['editBtn'])){
     $gender = $_POST['gender'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
-    $userRepository->updateUser($id, $username, $password, $gender, $email, $phone);
+    $role = $_POST['role'];
+    $userRepository->updateUser($id, $username, $password, $gender, $email, $phone, $role);
     header("location: host.php");
 }
 
