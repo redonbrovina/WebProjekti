@@ -9,21 +9,23 @@ nav {
     background-color: #FFFFFF;
     color: #0d47a1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
-    padding: 10px 50px;
+    padding: 0.625rem 3.125rem;
     align-items: center;
 }
 
 
 #nav-logo {
-    width: 125px;
-    height: 45px;
+    width: 7.8125em;
+    height: auto;
 }
 
 #nav-submenu {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
-    gap: 50px;
+    gap: 3.125rem;
 }
 
 #nav-submenu > a {
@@ -39,7 +41,8 @@ nav {
 
 #nav-right {
     display: flex;
-    gap: 50px;
+    flex-wrap: wrap;
+    gap: 3.125rem;
     align-items: center;
 }
 

@@ -44,4 +44,39 @@ function viewCart() {
 
     cartContainer.style.display = "block";
 }
+document.addEventListener("DOMContentLoaded", function() {
+    const menuLogo = document.getElementById('menu-logo');
+    const mobileNav = document.getElementById('mobile-nav');
+    
+    if (menuLogo) {
+        menuLogo.addEventListener('click', function() {
+            if (mobileNav.style.display === "block") {
+                mobileNav.style.display = "none";
+            } else {
+                mobileNav.style.display = "block";
+            }
+        });
+    }
+});
 
+    const mobileNav = document.getElementById("mobile-nav");
+    const signOut = document.getElementById("signOutBtn");
+    let index = 0;
+
+document.getElementById("menu-logo").addEventListener("click", () => {
+     if(mobileNav.style.display == "flex"){
+        mobileNav.style.display = "none";
+    }else{
+         mobileNav.style.display = "flex";
+    }
+})
+
+signOut.addEventListener("click", () => {
+    Swal.fire({
+        title: "You are now logged out",
+        icon: "info",
+        timer: 1500
+    });
+})
+
+    

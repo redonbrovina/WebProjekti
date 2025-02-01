@@ -1,5 +1,5 @@
 <?php
-session_start();
+session_start(); // Start the session at the top
 
 class Product {
     public $id;
@@ -19,9 +19,12 @@ class Product {
 
 class Cart {
     public static function addToCart($productId) {
+        // Ensure the cart is initialized
         if (!isset($_SESSION['cart'])) {
             $_SESSION['cart'] = [];
         }
+        
+        // Add or update the product in the cart
         if (isset($_SESSION['cart'][$productId])) {
             $_SESSION['cart'][$productId]++;
         } else {
@@ -34,6 +37,7 @@ class Cart {
     }
 }
 
+// Define some products
 $products = [
     new Product(1, "Hiking Bag Size S", "A durable, ergonomic backpack for outdoor essentials.", 19.99, "/images/bag2.webp"),
     new Product(2, "Hiking Bag Size M", "A bigger, durable, ergonomic backpack for outdoor essentials.", 29.99, "/images/bag2.webp"),
@@ -41,8 +45,10 @@ $products = [
     new Product(4, "Hiking Jacket", "Protective, insulated outerwear for all-weather comfort.", 69.99, "/images/jacket.jpg")
 ];
 
+// Handle POST request to add item to cart
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
     Cart::addToCart($_POST['product_id']);
+    // Redirect to shop page to see the update
     header("Location: shop.php");
     exit;
 }
@@ -66,21 +72,109 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
             background-color: #f5f5f5;
         }
         nav {
+            background-color: #FFFFFF;
+            color: #0d47a1;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding: 0.625rem 3.125rem;
             align-items: center;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
         }
         #nav-logo {
-            height: 50px;
+            width: 7.8125em;
+            height: auto;
         }
-        #nav-submenu a, #nav-right a {
-            color: white;
+        #nav-submenu {
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: row;
+            gap: 3.125rem;
+        }
+        #nav-submenu > a {
+            color: gray;
             text-decoration: none;
-            margin: 0 15px;
         }
+        #nav-submenu > a:hover {
+            color: black;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+        #nav-right {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3.125rem;
+            align-items: center;
+        }
+        #form-redirect {
+            text-decoration: none;
+            color: gray;
+        }
+
+        #form-redirect:hover {
+            color: black;
+            text-decoration: underline;
+            transition: 0.3s;
+        }
+
+        #menu-logo {
+            display: none;
+        }
+
+        #mobile-nav {
+            display: none;
+        }
+
+        @media screen and (max-width: 767px) {
+            #menu-logo {
+                display: block;
+            }
+
+            #mobile-nav {
+                display: block;
+                background-color: #fff;
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: 9999;
+                text-align: center;
+                padding: 1rem;
+                display: none;
+            }
+
+            #mobile-nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+                gap: 13px;
+                padding: 0;
+                padding-top: 4px;
+            }
+
+            #mobile-nav a:hover {
+                color: #0056b3;
+                text-decoration: underline;
+            }
+            #mobile-nav > a {
+                color: #4A4A4A;
+                text-decoration: none;
+            }
+
+            #mobile-nav > a > button {
+                font-size: smaller;
+                padding: 0.6rem;
+                height: auto;
+            }
+
+            #menu-logo {
+                display: flex;
+                width: 1.3rem;
+                height: auto;
+                cursor: pointer;
+            }
+        }
+
         .shop-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -147,7 +241,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
 <body>
 
 <nav>
-    <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
+    <a href="index.html"><img id="nav-logo" src="/images/ACTN.png" alt="site-logo"></a>
     <div id="nav-submenu">
         <a href="shop.php">Shop</a>
         <a href="about.html">About Us</a>
@@ -156,6 +250,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
     <div id="nav-right">
         <a href="form.html">Sign in</a>
         <button class="btn-base" onclick="location.href='shop.php'">Sign up for Free</button>
+    </div>
+    <img id="menu-logo" src="/images/menu-logo.png" alt="menu-logo">
+    <div id="mobile-nav">
+        <a href="shop.php" target="_blank">Shop</a>
+        <a href="about.html" target="_blank">About Us</a>
+        <a href="services.php" target="_blank">Services</a>
     </div>
 </nav>
 
@@ -209,3 +309,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
 
 </body>
 </html>
+
