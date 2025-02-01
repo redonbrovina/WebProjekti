@@ -184,8 +184,8 @@ if($_SESSION['role'] !== 'admin'){
                                     <td>{$order['order_date']}</td>    
                                     <<td><a href='javascript:void(0);' onclick='confirmDeleteOrder({$order['id']})'><img style='width:20%' src='../images/icon-cancel.png'></a></td>    
                                 </tr>
-                            ";
-                        }
+                                ";
+                            }
 
                         ?>
 
@@ -232,7 +232,7 @@ if($_SESSION['role'] !== 'admin'){
             usersDiv.style.display = "none";                          
             servicesDiv.style.display = "none";  
             welcomeDiv.style.display = "none";
-            ordersDiv.style.display = "flex";              
+            ordersDiv.style.display = "block";              
         })
 
 
