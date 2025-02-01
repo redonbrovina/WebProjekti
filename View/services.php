@@ -1,6 +1,6 @@
 <?php 
 
-include_once "Database/ServiceRepository.php";
+include_once "../Repositories/ServiceRepository.php";
 
 session_start();
 
@@ -21,12 +21,12 @@ session_start();
 </head>
 <body>
 <nav>
-        <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
+        <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="services.php" target="_blank">Services</a>
         </div>
 
         <div id="nav-right">
@@ -43,7 +43,7 @@ session_start();
                 <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
-        <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
+        <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
@@ -128,7 +128,7 @@ session_start();
     <footer>
         <div class="footer">
             <div id="footer-left">
-                <img class="footer-img" src="./images/ACTN-footer.png" alt="site-logo">
+                <img class="footer-img" src="../images/ACTN-footer.png" alt="site-logo">
                 <p>Experience the soul of the land.</p>
             </div>
 

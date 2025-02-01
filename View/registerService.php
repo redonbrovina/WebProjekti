@@ -1,6 +1,6 @@
 <?php 
 
-include_once "Database/RegisterController.php";
+include_once "../Controller/RegisterController.php";
 
 session_start();
 
@@ -66,7 +66,7 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
 </head>
 <body>
     <h1>Service Registration</h1>
-    <form action="Database/RegisterController.php" method="POST">
+    <form action="../Controller/RegisterController.php" method="POST">
         <div class="input-div">
             <h3>Name of Service</h3>
             <input type="text" name="name" id="name">

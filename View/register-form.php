@@ -16,10 +16,10 @@
     <main>
         <div class="main-content">
             <div class="content">
-                <a id="back-home" href="./index.php"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
-                <img id="form-logo" src="./images/ACTN.png" alt="site-logo">
+                <a id="back-home" href="./index.php"><img id="back-icon" src="../images/back-icon.png" alt="Back Icon">Back to Homepage</a>
+                <img id="form-logo" src="../images/ACTN.png" alt="site-logo">
                 
-                <form action="Database/RegisterController.php" method="post">
+                <form action="../Controller/RegisterController.php" method="post">
                     <div class="input-box">
                         <p>Username</p>
                         <input name="username" id="username" type="text" maxlength="30">
@@ -56,5 +56,5 @@
 </html>
 
 <?php
-include_once 'Database/RegisterController.php';
+include_once '../Controller/RegisterController.php';
 ?>

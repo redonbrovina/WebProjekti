@@ -1,6 +1,6 @@
 <?php 
 
-include_once 'databaseConnection.php';
+include_once '../Database/databaseConnection.php';
 
 class UserRepository {
     private $connection;

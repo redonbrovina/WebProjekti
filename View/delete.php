@@ -6,12 +6,12 @@ if(!isset($_SESSION['role']) || $_SESSION['role'] != 'admin'){
     header("location: index.php");
 }
 
-$serviceId=$_GET['id'];
+$userId=$_GET['id'];
 
-include_once "Database/ServiceRepository.php";
+include_once "../Repositories/UserRepository.php";
 
-$serviceRepository=new ServiceRepository();
-$serviceRepository->deleteService($serviceId);
+$userRepository=new UserRepository();
+$userRepository->deleteUser($userId);
 
 header("location:host.php");
 

@@ -1,9 +1,9 @@
 <?php 
 
-include_once 'User.php';
-include_once 'Service.php';
-include_once 'UserRepository.php';
-include_once 'ServiceRepository.php';
+include_once '../Model/User.php';
+include_once '../Model/Service.php';
+include_once '../Repositories/UserRepository.php';
+include_once '../Repositories/ServiceRepository.php';
 
 if(isset($_POST["registerBtn"])){
     if(empty($_POST["username"]) || empty($_POST["password"]) || empty($_POST["gender"]) ||
@@ -28,7 +28,7 @@ if(isset($_POST["registerBtn"])){
 
     $userRep->insertUser($user);
 
-    $url = '../form.php';
+    $url = '../View/form.php';
 
     if($userRep){
         sleep(3);
@@ -58,7 +58,7 @@ if(isset($_POST["registerServiceBtn"])){
     $serviceRep = new ServiceRepository();
 
     $serviceRep->insertService($service);
-    $url = "../host.php";
+    $url = "../View/host.php";
 
     if($serviceRep){
         sleep(1);

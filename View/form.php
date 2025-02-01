@@ -1,6 +1,6 @@
 <?php
-include_once 'Database/LoginController.php';
-include_once 'Database/UserRepository.php';
+include_once '../Controller/LoginController.php';
+include_once '../Repositories/UserRepository.php';
 
 session_start();
 
@@ -27,9 +27,9 @@ if(isset($_SESSION['username'])){
     <main>
         <div class="main-content">
             <div class="content">
-                <form action="Database/LoginController.php" method="POST">
-                    <a id="back-home" href="./index.php"><img id="back-icon" src="./images/back-icon.png" alt="Back Icon">Back to Homepage</a>
-                    <img id="form-logo" src="./images/ACTN.png" alt="">
+                <form action="../Controller/LoginController.php" method="POST">
+                    <a id="back-home" href="./index.php"><img id="back-icon" src="../images/back-icon.png" alt="Back Icon">Back to Homepage</a>
+                    <img id="form-logo" src="../images/ACTN.png" alt="">
                     <input id="user" type="text" name="username" placeholder="Username...">
                     <input id="pass" type="password" name="password" placeholder="Password...">
                     <p id="error-txt"></p>

@@ -1,6 +1,6 @@
 <?php
-include_once 'Database/UserRepository.php';
-include_once 'Database/ServiceRepository.php';
+include_once '../Repositories/UserRepository.php';
+include_once '../Repositories/ServiceRepository.php';
 
 session_start();
 
@@ -22,12 +22,12 @@ if($_SESSION['role'] !== 'admin'){
 </head>
 <body>
     <nav>
-        <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
+        <a href="index.html"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="services.php" target="_blank">Services</a>
         </div>
 
         <div id="nav-right">
@@ -44,11 +44,11 @@ if($_SESSION['role'] !== 'admin'){
                 <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
-        <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
+        <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
-            <a href="services.html" target="_blank">Services</a>
+            <a href="services.php" target="_blank">Services</a>
             <?php if($_SESSION['role'] == 'admin'): ?>
                 <a id="host-link" href="./host.php">Dashboard</a>
                 <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
@@ -116,8 +116,8 @@ if($_SESSION['role'] !== 'admin'){
                                 <td>{$service['id']}</td>
                                 <td>{$service['name']}</td>
                                 <td>{$service['price']} $</td>
-                                <td><a href='editService.php?id={$service['id']}'><img style='width=10%;' class='icons' src='images/iconsedit.png'></a></td>
-                                <td><a href='javascript:void(0)' onclick='confirmDeleteService({$service['id']})'><img style='width:10%;' class='icons' src='images/icon-trash.png'></a></td>
+                                <td><a href='editService.php?id={$service['id']}'><img class='icons' src='../images/iconsedit.png'></a></td>
+                                <td><a href='javascript:void(0)' onclick='confirmDeleteService({$service['id']})'><img class='icons' src='../images/icon-trash.png'></a></td>
                             </tr>
                         ";
                     }
@@ -155,8 +155,8 @@ if($_SESSION['role'] !== 'admin'){
                                 <td>{$user['gender']}</td>
                                 <td>{$phone}</td>
                                 <td>{$user['role']}</td>
-                                <td><a href='edit.php?id={$user['id']}'><img class='icons' src='images/iconsedit.png'></a></td>
-                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='images/icon-trash.png'></a></td>
+                                <td><a href='edit.php?id={$user['id']}'><img class='icons' src='../images/iconsedit.png'></a></td>
+                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='../images/icon-trash.png'></a></td>
                             </tr>
                         ";
                     }

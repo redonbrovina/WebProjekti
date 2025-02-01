@@ -21,7 +21,7 @@ if($_SESSION['role'] !== 'user'){
 </head>
 <body>
     <nav>
-        <a href="index.html"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
+        <a href="index.html"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
@@ -43,7 +43,7 @@ if($_SESSION['role'] !== 'user'){
                 <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
-        <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
+        <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>

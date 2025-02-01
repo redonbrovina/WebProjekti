@@ -1,6 +1,6 @@
 <?php 
-include_once 'User.php';
-include_once 'UserRepository.php';
+include_once '../Model/User.php';
+include_once '../Repositories/UserRepository.php';
 
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $username = $_POST['username'];
@@ -10,7 +10,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $isTrue = $userRep->checkLogin($username, $password);
     $user = $userRep->getUserByUsername($username);
     
-    $url = '../index.php';
+    $url = '../View/index.php';
     
     if($isTrue){
         session_start();
@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     echo "<script>
             alert('Username or Password is incorrect');
-            window.location.href = '../form.php';
+            window.location.href = '../View/form.php';
             </script>";
 }
 

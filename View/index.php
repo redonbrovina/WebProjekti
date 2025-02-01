@@ -18,7 +18,7 @@ session_start();
 </head>
 <body>
     <nav>
-        <a href="index.php"><img id="nav-logo" src="./images/ACTN.png" alt="site-logo"></a>
+        <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
@@ -40,17 +40,19 @@ session_start();
                 <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
             <?php endif; ?>
         </div>
-        <img id="menu-logo" src="./images/menu-logo.png" alt="menu-logo">
+        <img id="menu-logo" src="../images/menu-logo.png" alt="menu-logo">
         <div id="mobile-nav">
             <a href="shop.html" target="_blank">Shop</a>
             <a href="about.html" target="_blank">About Us</a>
             <a href="services.php" target="_blank">Services</a>
-            <?php if($_SESSION['role'] == 'admin'): ?>
-                <a id="host-link" href="./host.php">Dashboard</a>
-                <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
-            <?php elseif (isset($_SESSION['username'])): ?>
-                <a id="host-link" href="./userDashboard.php">Dashboard</a>
-                <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+            <?php if(isset($_SESSION['role'])): ?>
+                <?php if($_SESSION['role'] == 'admin'): ?>
+                    <a id="host-link" href="./host.php">Dashboard</a>
+                    <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+                <?php else: ?>
+                    <a id="host-link" href="./userDashboard.php">Dashboard</a>
+                    <a href="./logout.php"><button class="btn-base" id="signOutBtn">Sign Out</button></a>
+                <?php endif; ?>
             <?php else: ?>
                 <a id="form-redirect" href="form.php" target="_blank">Sign in</a>
                 <a href="./register-form.php" target="_blank"><button class="btn-base">Sign up for Free</button></a>
@@ -67,37 +69,31 @@ session_start();
 
     <div id="services">
         <h1>Our Services</h1>
+        <p>Autochthonous offers guided mountain tours across Kosovo, taking you through stunning peaks, hidden trails, and rich cultural landscapes. 
+            Whether you seek adventure or tranquility, our tailored experiences ensure an unforgettable journey into nature.</p>
         <div class="section-content">
-            <div class="services-box">
-                <img class="services-img" src="./images/brezovica.jpg" alt="brezovica">
-                <h2>Brezovica</h2>
-                <p id="price">$60</p>
-                <p style="line-height: 1.3;">Brezovica, in the stunning Sharr Mountains, 
-                    is perfect for year-round adventures—ski in winter, 
-                    hike in summer, and explore its hidden gems with our expert guide.</p>
-                <a style="color: #0077B6;" id="brezovica-redirect" href="services.php#Brezovica" target="_blank">See More</a>
+
+            <div class="services-box" id="brezovica">
+                <h2>Brezovica Tour</h2>
+                <img class='services-img' src="../images/brezovica.jpg" alt="brezovica">
             </div>
 
-            <div class="services-box">
-                <img class="services-img" src="./images/Sharr.jpg" alt="Sharr">
-                <h2>Sharr National Park</h2>
-                <p id="price">$120</p>
-                <p style="line-height: 1.3;">Sharr National Park is a nature lover's paradise, offering rugged peaks, 
-                    verdant valleys, and a rich variety of wildlife. 
-                    Perfect for hiking or serene getaways, our expert guide will help you uncover its breathtaking trails 
-                    and hidden wonders.</p>
-                <a style="color: #0077B6;" href="services.php#Sharr National Park" target="_blank">See More</a>
+            <div class="services-box" id="sharr">
+                <h2>Sharr National Park Tour</h2>
+                <img class='services-img' src="../images/Sharr.jpg" alt="Sharr National Mountain">
             </div>
 
-            <div class="services-box">
-                <img class="services-img" src="./images/Rugova_Canyon.jpg" alt="Rugova">
-                <h2>Rugova Canyon</h2>
-                <p id="price">$140</p>
-                <p style="line-height: 1.3;">Rugova Canyon, with its towering cliffs and winding trails, 
-                    is one of Kosovo's most stunning natural attractions. 
-                    From breathtaking views to hidden waterfalls, let our guide reveal the best this canyon has to offer.</p>
-                <a style="color: #0077B6;" href="services.php#Rugova Canyon" target="_blank">See More</a>
+            <div class="services-box" id="rugova">
+                <h2>Rugova Canyon Tour</h2>
+                <img class='services-img' src="../images/Rugova_Canyon.jpg" alt="Rugova">
             </div>
+
+            <div class="controls">
+                <button onclick={goPrevious()}><</button>
+                <button onclick={goForward()}>></button>
+            </div>
+
+            <a href="services.php" target="_blank"><button class="btn-base">Explore our services</button></a>
         </div>
     </div>
 
@@ -106,17 +102,17 @@ session_start();
         <p>Equip yourself for every journey with our handpicked hiking gear, built for adventure and exploration.</p>
         <div class="products-content">
             <div class="products-box">
-                <img class="products-img" src="./images/jacket.jpg" alt="placeholder">
+                <img class="products-img" src="../images/jacket.jpg" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
 
             <div class="products-box">
-                <img class="products-img" src="./images/product3.jpg" alt="placeholder">
+                <img class="products-img" src="../images/product3.jpg" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
 
             <div class="products-box">
-                <img class="products-img" src="./images/bag2.webp" alt="placeholder">
+                <img class="products-img" src="../images/bag2.webp" alt="placeholder">
                 <label for="img" class="price"></label>
             </div>
         </div>
@@ -127,7 +123,7 @@ session_start();
     <footer>
         <div class="footer">
             <div id="footer-left">
-                <img class="footer-img" src="./images/ACTN-footer.png" alt="site-logo">
+                <img class="footer-img" src="../images/ACTN-footer.png" alt="site-logo">
                 <p>Experience the soul of the land.</p>
             </div>
 
@@ -150,6 +146,11 @@ session_start();
     <script>
         const mobileNav = document.getElementById("mobile-nav");
         const signOut = document.getElementById("signOutBtn");
+        const brezovica = document.getElementById("brezovica");
+        const sharr = document.getElementById("sharr");
+        const rugova = document.getElementById("rugova");
+                
+        let index = 0;
 
         document.getElementById("menu-logo").addEventListener("click", () => {
             if(mobileNav.style.display == "flex"){
@@ -166,6 +167,48 @@ session_start();
                 timer: 1500
           });
         })
+
+        function goPrevious() {
+            if(index == 0){
+                brezovica.style.display = "none";
+                sharr.style.display = "none";
+                rugova.style.display = "flex";
+                index = 2;
+            }else if(index == 1){
+                brezovica.style.display = "flex";
+                sharr.style.display = "none";
+                rugova.style.display = "none";
+                index = index - 1;
+            }else{
+                brezovica.style.display = "none";
+                sharr.style.display = "flex";
+                rugova.style.display = "none";
+                index = index-1;
+            }
+        }
+
+        function goForward() {
+            if(index == 0){
+                brezovica.style.display = "none";
+                sharr.style.display = "flex";
+                rugova.style.display = "none";
+                index = index + 1;
+            }else if(index == 1){
+                brezovica.style.display = "none";
+                sharr.style.display = "none";
+                rugova.style.display = "flex";
+                index = index + 1;
+            }else{
+                brezovica.style.display = "flex";
+                sharr.style.display = "none";
+                rugova.style.display = "none";
+                index = 0;
+            }
+        }
+
+
+
+
 
     </script>
 </body>
