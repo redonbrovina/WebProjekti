@@ -63,6 +63,16 @@ nav {
     display: none;
 }
 
+#user-txt {
+    color: gray;
+    font-size: 1rem;
+}
+
+#host-link {
+    color: gray;
+    text-decoration: none;
+}
+
 
 .btn-base {
     color: white;

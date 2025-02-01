@@ -1,0 +1,287 @@
+body {
+    margin: 0;
+    font-family: Marcellus, sans-serif;
+}
+
+nav {
+    background-color: #FFFFFF;
+    color: #0d47a1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 0.625rem 3.125rem;
+    align-items: center;
+}
+
+#nav-logo {
+    width: 7.8125em;
+    height: auto;
+}
+
+#nav-submenu {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 3.125rem;
+}
+
+#nav-submenu > a {
+    color: gray;
+    text-decoration: none;
+}
+
+#nav-submenu > a:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+#nav-right {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3.125rem;
+    align-items: center;
+}
+#form-redirect {
+    text-decoration: none;
+    color: gray;
+}
+
+#form-redirect:hover {
+    color: black;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+
+#menu-logo {
+    display: none;
+}
+
+#mobile-nav {
+    display: none;
+}
+#user-txt {
+    color: gray;
+    font-size: 1rem;
+}
+
+#host-link {
+    color: gray;
+    text-decoration: none;
+}
+
+.btn-base {
+    color: white;
+    background-color: #0d47a1;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    font-family: Marcellus, sans-serif;
+    height: 3.125rem;
+    cursor: pointer;
+}
+
+main {
+    padding: 5rem;
+    background: linear-gradient(#7393B3, white);
+    height: 66vh;
+}
+
+main > h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    color: #0d47a1;
+}
+
+#host-menu {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    border-top-right-radius: 0.6rem;
+    border-top-left-radius: 0.6rem;
+    padding-bottom: 0.6rem;
+    padding-top: 0.6rem;
+}
+
+.menu-btn {
+    background-color: #7393B3;
+    padding: 0.6rem 1rem;
+    border-radius: 0.6rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn:hover {
+    background-color: white;
+    color: #7393B3;
+    transition: 0.2s;
+    border: 0.1rem solid #7393B3;
+}
+
+#content {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.content-container {
+    width: 100%;
+    height: 25rem;
+    border: none;
+    border-bottom-left-radius: 0.6rem;
+    border-bottom-right-radius: 0.6rem;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    overflow-y: auto;
+    flex-wrap: wrap;
+}
+
+.content-container > h3 {
+    text-align: center;
+}
+
+.content-commands {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.command-btn {
+    color: white;
+    background-color: #0d47a1;
+    padding: 0.6rem 0.8rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-weight: 600;
+    font-family: Marcellus, sans-serif;
+    cursor: pointer;
+}
+
+.icons {
+    width: 15%;
+    height: auto;
+    cursor: pointer;
+}
+
+#products {
+    display: none;
+    flex-direction: column;
+}
+
+#services {
+    display: none;
+    margin: auto;
+    width: 100%;
+}
+
+#users {
+    display: none;
+    flex-direction: column;
+}
+
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 1rem auto;
+    margin-top: 2rem;
+}
+
+th{
+    border: 1px solid #7393B3;
+    padding: 0.3rem;
+    background-color: #0d47a1;
+    color: white;
+}
+
+td{
+    padding: 0.3rem;
+    text-align: center;
+    border: 1px solid #7393B3;
+}
+    
+
+@media (max-width: 1024px){
+    nav {
+        font-size: smaller;
+    }
+
+    #nav-right {
+        gap: 2rem;
+    }
+
+
+    #user-txt {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    nav {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #nav-submenu, #nav-right {
+        display: none;
+    }
+
+    #mobile-nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 13px;
+        padding: 0;
+        padding-top: 4px;
+    }
+
+    #mobile-nav > a {
+        color: #4A4A4A;
+        text-decoration: none;
+    }
+
+    #mobile-nav > a > button {
+        font-size: smaller;
+        padding: 0.6rem;
+        height: auto;
+    }
+
+    #menu-logo {
+        display: flex;
+        width: 1.3rem;
+        height: auto;
+        cursor: pointer;
+    }
+    
+
+    #user-txt {
+        margin: 0;
+        color: #4A4A4A;
+        font-size: 0.9rem;
+        font-family: Marcellus, sans-serif;
+    }
+
+    #content {
+        width: 100%;
+    }
+    main {
+        padding: 1rem;
+        padding-top: 2rem;
+    }
+
+    #host-menu {
+        gap: 1rem;
+    }
+
+    .icons {
+        width: 40%;
+        height: auto;
+    }
+}
