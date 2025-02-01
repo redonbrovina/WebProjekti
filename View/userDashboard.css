@@ -85,8 +85,39 @@ nav {
 }
 
 main {
-    padding: 5rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
 }
+
+main > button {
+    display: block;
+    margin: auto;
+    width: 25%;
+}
+
+table {
+    width: 80%;
+    border-collapse: collapse;
+    margin: 1rem auto;
+    margin-top: 2rem;
+}
+
+th{
+    border: 1px solid #7393B3;
+    padding: 0.3rem;
+    background-color: #0d47a1;
+    color: white;
+}
+
+td{
+    padding: 0.3rem;
+    text-align: center;
+    border: 1px solid #7393B3;
+}
+    
+
 
 @media (max-width: 1024px){
     nav {

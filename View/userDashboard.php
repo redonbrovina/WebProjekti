@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+include_once "../Repositories/OrderRepository.php";
+include_once "../Repositories/ServiceRepository.php";
+
 if($_SESSION['role'] !== 'user'){
     header('Location: index.php');
 }
@@ -21,7 +24,7 @@ if($_SESSION['role'] !== 'user'){
 </head>
 <body>
     <nav>
-        <a href="index.html"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
+        <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
@@ -63,8 +66,55 @@ if($_SESSION['role'] !== 'user'){
 
     <main>
         <h1>Welcome, <?php echo $_SESSION['username']?></h1>
-        <button class="btn-base">Proceed to checkout</button>
         <h3>Your Cart</h3>
+
+        <?php
+                echo "
+                    <table>
+                        <tr>
+                            <th>Order Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Order Date</th>
+                            <th>Cancel Order</th>
+                        </tr>
+                ";
+
+                $OrderRep = new OrderRepository();
+                $ServiceRep = new ServiceRepository();
+
+                $userId = $_SESSION['user_id'];
+
+                $orders = $OrderRep->getOrdersByUserId($userId);
+
+                $totalPrice = 0;
+
+                foreach($orders as $order){
+                    $name = $ServiceRep->getServiceNameById($order['service_id']);
+                    $price = $ServiceRep->getServicePriceById($order['service_id']);
+
+                    if(is_bool($name)){
+                        continue;
+                    }
+                    echo "
+                        <tr>
+                            <td>{$name['name']}</td>
+                            <td>{$order['quantity']}</td>
+                            <td>{$price['price']}</td>
+                            <td>{$order['order_date']}</td>
+                            <td><a href='javascript:void(0);' onclick='confirmDelete({$order['id']})'><img style='width:20%' src='../images/icon-cancel.png'></a></td>
+                        </tr>
+                    ";
+
+                    $totalPrice += $price['price']*$order['quantity'];
+                }
+
+                echo "</table>";
+
+                echo "<h2>Total Price: {$totalPrice} $</h2>"
+                
+                ?>
+        <button class="btn-base">Proceed to checkout</button>
     </main>
 
     <script>
@@ -77,6 +127,12 @@ if($_SESSION['role'] !== 'user'){
                 mobileNav.style.display = "flex";
             }
         })
+
+        function confirmDelete(orderId){
+            if(confirm("Are you sure you want to delete this order?")){
+                window.location.href = 'deleteOrder.php?id=' + orderId;
+            }
+        }
     </script>
 </body>
 </html>

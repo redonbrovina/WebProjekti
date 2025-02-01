@@ -68,4 +68,5 @@ if(isset($_POST["registerServiceBtn"])){
         echo "<script>alert('Registration Failed!')</script>";
     }
 }
+
 ?>

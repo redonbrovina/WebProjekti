@@ -1,6 +1,7 @@
 <?php
 include_once '../Repositories/UserRepository.php';
 include_once '../Repositories/ServiceRepository.php';
+include_once '../Repositories/OrderRepository.php';
 
 session_start();
 
@@ -22,7 +23,7 @@ if($_SESSION['role'] !== 'admin'){
 </head>
 <body>
     <nav>
-        <a href="index.html"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
+        <a href="index.php"><img id="nav-logo" src="../images/ACTN.png" alt="site-logo"></a>
         
         <div id="nav-submenu">
             <a href="shop.html" target="_blank">Shop</a>
@@ -67,6 +68,7 @@ if($_SESSION['role'] !== 'admin'){
             <button class="menu-btn" id="productsBtn">Products</button>
             <button class="menu-btn" id="servicesBtn">Services</button>
             <button class="menu-btn" id="usersBtn">Users</button>
+            <button class="menu-btn" id="ordersBtn">Orders</button>
         </div>
         <div id="content">
             <div class="content-container" id="welcome-div">
@@ -117,7 +119,7 @@ if($_SESSION['role'] !== 'admin'){
                                 <td>{$service['name']}</td>
                                 <td>{$service['price']} $</td>
                                 <td><a href='editService.php?id={$service['id']}'><img class='icons' src='../images/iconsedit.png'></a></td>
-                                <td><a href='javascript:void(0)' onclick='confirmDeleteService({$service['id']})'><img class='icons' src='../images/icon-trash.png'></a></td>
+                                <td><a href='javascript:void(0)' onclick='confirmDeleteService({$service['id']})'><img class='icons' src='../images/icon-cancel.png'></a></td>
                             </tr>
                         ";
                     }
@@ -156,12 +158,57 @@ if($_SESSION['role'] !== 'admin'){
                                 <td>{$phone}</td>
                                 <td>{$user['role']}</td>
                                 <td><a href='edit.php?id={$user['id']}'><img class='icons' src='../images/iconsedit.png'></a></td>
-                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='../images/icon-trash.png'></a></td>
+                                <td><a href='javascript:void(0);' onclick='confirmDelete({$user['id']})'><img class='icons' src='../images/icon-cancel.png'></a></td>
                             </tr>
                         ";
                     }
                     ?>
                 </table>
+            </div>
+
+            <div class="content-container" id="orders">
+                    <h3>Orders: </h3>
+                    <table>
+                        <tr>
+                            <th>ID</th>
+                            <th>User</th>
+                            <th>Order Name</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Order Date</th>
+                            <th style="text-decoration: underline;">Cancel Order</th>
+                        </tr>
+
+                        <?php 
+                        $OrderRep = new OrderRepository();
+                        $ServiceRep = new ServiceRepository();
+                        $UserRep = new UserRepository();
+
+                        $orders = $OrderRep->getAllOrders();
+                        
+                        foreach($orders as $order){
+                            $name = $ServiceRep->getServiceNameById($order['service_id']);
+                            $price = $ServiceRep->getServicePriceById($order['service_id']);
+                            $user = $UserRep->getUserById($order['user_id']);
+                            $truePrice = $price['price'] * $order['quantity'];
+
+                            echo "
+                                <tr>
+                                    <td>{$order['id']}</td>    
+                                    <td>{$user['username']}</td>
+                                    <td>{$name['name']}</td>    
+                                    <td>{$order['quantity']}</td>    
+                                    <td>{$truePrice} $</td>    
+                                    <td>{$order['order_date']}</td>    
+                                    <<td><a href='javascript:void(0);' onclick='confirmDeleteOrder({$order['id']})'><img style='width:20%' src='../images/icon-cancel.png'></a></td>    
+                                </tr>
+                            ";
+                        }
+
+                        ?>
+
+                    </table>
+
             </div>
         </div>
     </main>
@@ -172,10 +219,12 @@ if($_SESSION['role'] !== 'admin'){
         const servicesDiv = document.getElementById("services");
         const usersDiv = document.getElementById("users");
         const welcomeDiv = document.getElementById("welcome-div");
+        const ordersDiv = document.getElementById("orders");
 
         const productsBtn = document.getElementById("productsBtn");
         const servicesBtn = document.getElementById("servicesBtn");
         const usersBtn = document.getElementById("usersBtn");
+        const ordersBtn = document.getElementById("ordersBtn");
 
         document.getElementById("menu-logo").addEventListener("click", () => {
             if(mobileNav.style.display == "flex"){
@@ -190,6 +239,7 @@ if($_SESSION['role'] !== 'admin'){
             servicesDiv.style.display = "none";
             usersDiv.style.display = "none";
             welcomeDiv.style.display = "none";
+            ordersDiv.style.display = "none"; 
         })
 
         servicesBtn.addEventListener("click", ()=> {
@@ -197,14 +247,25 @@ if($_SESSION['role'] !== 'admin'){
             productsDiv.style.display = "none";
             usersDiv.style.display = "none";
             welcomeDiv.style.display = "none";
+            ordersDiv.style.display = "none"; 
         })
 
         usersBtn.addEventListener("click", ()=> {
             usersDiv.style.display = "flex";                
             productsDiv.style.display = "none";                
             servicesDiv.style.display = "none";  
-            welcomeDiv.style.display = "none";              
+            welcomeDiv.style.display = "none";
+            ordersDiv.style.display = "none";               
         })
+
+        ordersBtn.addEventListener("click", ()=> {
+            usersDiv.style.display = "none";                
+            productsDiv.style.display = "none";                
+            servicesDiv.style.display = "none";  
+            welcomeDiv.style.display = "none";
+            ordersDiv.style.display = "flex";              
+        })
+
 
         function alertDelete() {
             alert("Are you sure you want to delete this item?");
@@ -217,8 +278,14 @@ if($_SESSION['role'] !== 'admin'){
         }
 
         function confirmDeleteService(serviceId){
-            if(confirm("Are you sure you want to delete this service")){
+            if(confirm("Are you sure you want to delete this service?")){
                 window.location.href='deleteService.php?id=' + serviceId;
+            }
+        }
+
+        function confirmDeleteOrder(orderId){
+            if(confirm("Are you sure you want to delete this order?")){
+                window.location.href='deleteOrder.php?id=' + orderId;
             }
         }
 
