@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
 <footer>
     <div class="footer">
         <div id="footer-left">
-            <img class="footer-img" src="./images/ACTN-footer.png" alt="site-logo">
+            <img class="footer-img" src="/images/ACTN-footer.png" alt="site-logo">
             <p>Experience the soul of the land.</p>
         </div>
         <div id="footer-right">
