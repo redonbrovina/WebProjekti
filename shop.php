@@ -1,3 +1,54 @@
+<?php
+session_start();
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+class Product{
+    public $id;
+    public $name;
+    public $description;
+    public $price;
+    public $image;
+
+    public function __construct($id,$name,$description,$price,$image)
+    {
+    $this->id= $id;
+    $this->name= $name;
+    $this->description= $description;
+    $this->price= $price;
+    $this->image= $image;    
+    }
+}
+class Cart{
+    public static function addToCart($productId){
+        if(!isset($_SESSION['cart'])){
+            $_SESSION['cart']=[];
+        }
+        if(isset($_SESSION['cart'][$productId])){
+            $_SESSION['cart'][$productId]++;
+        }else{
+            $_SESSION['cart'][$productId]=1;
+        }
+    }
+    public static function getCart() {
+        return $_SESSION['cart'] ?? [];
+    }
+}
+$products= [
+    new Product(1,"Hiking Bag Size S","A durable, ergonomic backpack for outdoor essentials.",19.99,"./images/bag2.webp"),
+    new Product(2,"Hiking Bag Size M","A bigger, durable, ergonomic backpack for outdoor essentials.",29.99,"./images/bag2.webp"),
+    new Product(3,"Hiking Boots","Sturdy, supportive footwear for outdoor adventures.",99.99,"./images/product3.jpg"),
+    new Product(4,"Hiking Jacket","Protective, insulated outerwear for all-weather comfort.",69.99,"./images/jacket.jpg")
+];
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])){
+    Cart::addToCart($_POST['product_id']);
+    header("Location: shop.php");
+    exit;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -104,52 +155,26 @@
     <h1 style="text-align: center; padding: 20px;">Shop</h1>
 
     <div class="shop-container">
+        <?php foreach($products as $product) : ?>
         <!-- Produkti 1 -->
         <div class="shop-item">
-            <img src="./images/bag2.webp" alt="Product Image">
+            <img src="<?= $product->image ?>" alt="Product Image">
             <div class="shop-item-content">
-                <div class="shop-item-title">Hiking Bag Size S</div>
-                <div class="shop-item-description">A durable, ergonomic backpack for outdoor essentials.</div>
-                <div class="shop-item-price">$19.99</div>
-                <a href="#" class="shop-item-button">Add to Cart</a>
+                <div class="shop-item-title"><?=  $product->name ?></div>
+                <div class="shop-item-description"><?= $product->description?></div>
+                <div class="shop-item-price">$<?=number_format($product->price, 2)?></div>
+                <form method="POST">
+                <input type="hidden" name="product_id" value="<?= $product->id ?>">
+                <button type="submit" class="shop-item-button"> Add To Cart </button>
+                </form>
             </div>
         </div>
+        <?php endforeach; ?>
+    </div>    
     
-     <!-- Produkti 2 -->
-     <div class="shop-item">
-        <img src="./images/bag2.webp" alt="Product Image">
-        <div class="shop-item-content">
-            <div class="shop-item-title">Hiking Bag Size M</div>
-            <div class="shop-item-description">A bigger, durable, ergonomic backpack for outdoor essentials.</div>
-            <div class="shop-item-price">$29.99</div>
-            <a href="#" class="shop-item-button">Add to Cart</a>
-        </div>
-    </div>
-     <!-- Produkti 3 -->
-     <div class="shop-item">
-        <img src="./images/product3.jpg" alt="Product Image">
-        <div class="shop-item-content">
-            <div class="shop-item-title">Hiking Boots</div>
-            <div class="shop-item-description">Sturdy, supportive footwear for outdoor adventures.</div>
-            <div class="shop-item-price">$99.99</div>
-            <a href="#" class="shop-item-button">Add to Cart</a>
-        </div>
-    </div>
-     <!-- Produkti 4 -->
-     <div class="shop-item">
-        <img src="./images/jacket.jpg" alt="Product Image">
-        <div class="shop-item-content">
-            <div class="shop-item-title">Hiking Jacket</div>
-            <div class="shop-item-description">Protective, insulated outerwear for all-weather comfort.</div>
-            <div class="shop-item-price">$69.99</div>
-            <a href="#" class="shop-item-button">Add to Cart</a>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-<div class="cart-button-container">
-<button class="btn-base" onclick="viewCart()">View Cart</button>
+     
+<div class="cart-button-container" style="text-align:center ;margin: 20px;">
+<a href="cart.php" class="btn-base">View Cart</a>
 </div>
 <div id="cart-container" style="display: none; margin-top: 20px;"></div>
 <p class="motto">Embrace Your Roots...</p>
