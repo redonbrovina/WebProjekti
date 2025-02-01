@@ -93,7 +93,7 @@ session_start();
                             <div class='service-box-description'>
                                 <p>{$service['description']}</p>
                                 <div>
-                                    <button class='btn-book' onclick='booked()'>Book Now</button>
+                                    <button class='btn-book' onclick='booked({$service['id']})'>Book Now</button>
                                     <p class='price'>$ {$service['price']}</p>
                                 </div>
                             </div>
@@ -160,12 +160,18 @@ session_start();
             }
         })
 
-        function booked() {
+        function booked(serviceId) {
             Swal.fire({
                 title: "Service has been booked",
                 text: "Go to dashboard to view orders or proceed to checkout.",
-                icon: "success"
+                icon: "success",
+                willClose: ()=> {
+                    window.location.href = 'addOrder.php?serviceid='+serviceId;
+                }
             });
+
+
+
         }
         
         

@@ -93,7 +93,7 @@ session_start();
                 <button onclick={goForward()}>></button>
             </div>
 
-            <a href="services.php" target="_blank"><button class="btn-base">Explore our services</button></a>
+            <a href="services.php" target="_blank"><button class="btn-base">See our services</button></a>
         </div>
     </div>
 

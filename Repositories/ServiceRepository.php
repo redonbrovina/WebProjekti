@@ -76,6 +76,26 @@ class ServiceRepository {
         $statement = $conn->prepare($sql);
         $statement->execute([$id]);
     }
+
+    function getServicePriceById($id){
+        $conn = $this->connection;
+        $sql = "SELECT price FROM service WHERE id = '$id'";
+
+        $statement = $conn->query($sql);
+
+        $price = $statement->fetch();
+        return $price;
+    }
+
+    function getServiceNamebyId($id){
+        $conn = $this->connection;
+        $sql = "SELECT name FROM service WHERE id = '$id'";
+
+        $statement = $conn->query($sql);
+
+        $name = $statement->fetch();
+        return $name;
+    }
 }
 
 ?>
