@@ -3,6 +3,12 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main {
+    flex-grow: 1; 
 }
 
 nav {
@@ -20,36 +26,18 @@ nav {
     height: auto;
 }
 
-#nav-submenu {
+#nav-submenu, #nav-right {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
     gap: 3.125rem;
 }
 
-#nav-submenu > a {
+#nav-submenu > a, #form-redirect {
     color: gray;
     text-decoration: none;
 }
 
-#nav-submenu > a:hover {
-    color: black;
-    text-decoration: underline;
-    transition: 0.3s;
-}
-
-#nav-right {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 3.125rem;
-    align-items: center;
-}
-#form-redirect {
-    text-decoration: none;
-    color: gray;
-}
-
-#form-redirect:hover {
+#nav-submenu > a:hover, #form-redirect:hover {
     color: black;
     text-decoration: underline;
     transition: 0.3s;
@@ -62,6 +50,7 @@ nav {
 #mobile-nav {
     display: none;
 }
+
 #user-txt {
     color: gray;
     font-size: 1rem;
@@ -88,6 +77,7 @@ nav {
     text-decoration: none;
     color: white;
 }
+
 .thank-you-message {
     text-align: center;
     font-size: 18px;
@@ -95,25 +85,22 @@ nav {
     margin-top: 40px;
     padding: 20px;
     font-family: 'Inter', sans-serif;
- }
+}
 
- footer {
+footer {
     background-color: #0d47a1;
     padding: 2.25rem 6.25rem;
 }
 
-footer > label {
-    color:white;
+footer label, .footer {
+    color: white;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
 .footer {
-    display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
-    color: white;
     align-items: center;
 }
 
@@ -129,6 +116,7 @@ footer > label {
     align-items: start;
     gap: 9.375rem;
 }
+
 #cart-container {
     padding: 20px;
     background-color: #fff;
@@ -137,16 +125,16 @@ footer > label {
     max-width: 600px;
     margin: 20px auto;
 }
-.cart-button-container{
+
+.cart-button-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-
-
-@media(max-width:1024px){
+/* Media Queries */
+@media(max-width: 1024px) {
     nav {
         font-size: smaller;
     }
@@ -156,11 +144,11 @@ footer > label {
         font-size: 0.8rem;
     }
 
-    #footer-left { 
+    #footer-left {
         max-width: 16rem;
     }
 
-    footer > label {
+    footer label {
         padding-top: 1.5rem;
     }
 
@@ -169,7 +157,7 @@ footer > label {
     }
 }
 
-@media(max-width: 480px){
+@media(max-width: 480px) {
     nav {
         justify-content: space-between;
         align-items: center;
@@ -180,7 +168,7 @@ footer > label {
     }
 
     #mobile-nav {
-        display: none;
+        display: flex;
         width: 100%;
         align-items: center;
         justify-content: space-evenly;
@@ -222,7 +210,7 @@ footer > label {
         margin-bottom: 1.55rem;
     }
 
-    #footer-left { 
+    #footer-left {
         width: 100%;
     }
 
@@ -232,8 +220,81 @@ footer > label {
         margin: auto;
     }
 
-    #footer-right > div{
+    #footer-right > div {
         padding: 0.6rem;
     }
+}
 
+/* Cart Header */
+.cart-header {
+    color: #007bff;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.cart-table th {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    text-align: left;
+}
+
+.cart-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.cart-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.remove-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.remove-button:hover {
+    background-color: #cc0000;
+}
+
+.checkout-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.checkout-button:hover {
+    background-color: #218838;
+}
+
+.checkout-container {
+    text-align: center;
+    margin-top: 20px;
 }

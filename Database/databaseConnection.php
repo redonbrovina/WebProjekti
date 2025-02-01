@@ -5,7 +5,7 @@ class Database {
     private $host = 'localhost';
     private $username = 'root';
     private $password = '';
-    private $name = 'projekti';
+    private $name = 'mydb';
 
     function startConnection(){
         try{

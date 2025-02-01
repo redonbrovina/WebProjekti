@@ -16,7 +16,6 @@ class Product {
     }
 }
 
-
 function getProductById($id) {
     $products = [
         1 => new Product(1, "Hiking Bag Size S", "A durable, ergonomic backpack for outdoor essentials.", 19.99, "./images/bag2.webp"),
@@ -47,14 +46,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['produc
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
-    <link rel="stylesheet" href="./shop.css">
-    <style></style>
+    <link rel="stylesheet" href="shop.css">
 </head>
 <body>
-    <h1>Your Shopping Cart</h1>
+    <div class="cart-header">Your Shopping Cart</div>
 
     <?php if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])): ?>
-        <table border="1" cellpadding="10">
+        <table class="cart-table">
             <thead>
                 <tr>
                     <th>Product Name</th>
@@ -78,7 +76,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['produc
                         <td><?= $quantity ?></td>
                         <td>$<?= number_format($product->price, 2) ?></td>
                         <td>$<?= number_format($total, 2) ?></td>
-                        <td><a href="cart.php?action=remove&product_id=<?= $productId ?>">Remove</a></td>
+                        <td><a href="cart.php?action=remove&product_id=<?= $productId ?>" class="remove-button">Remove</a></td>
                     </tr>
                 <?php endif; endforeach; ?>
             </tbody>
@@ -86,13 +84,13 @@ if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['produc
 
         <h3>Total Price: $<?= number_format($totalPrice, 2) ?></h3>
 
-        <div style="text-align: center;">
+        <div class="checkout-container">
             <a href="shop.php" class="btn-base">Continue Shopping</a>
-            <a href="checkout.php" class="btn-base">Proceed to Checkout</a>
+            <a href="#" class="btn-base checkout-button">Proceed to Checkout</a>
         </div>
     <?php else: ?>
         <p>Your cart is empty.</p>
-        <div style="text-align: center;">
+        <div class="checkout-container">
             <a href="shop.php" class="btn-base">Go to Shop</a>
         </div>
     <?php endif; ?>

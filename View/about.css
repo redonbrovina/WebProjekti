@@ -277,3 +277,23 @@ footer > label {
         padding: 0.6rem;
     }
 }
+.ceo p.email {
+    font-size: 1rem; /* default font size */
+    color: #0d47a1;
+    margin: 5px 0;
+}
+
+@media(max-width: 1024px) {
+    /* Slightly reduce the font size for tablets */
+    .ceo p.email {
+        font-size: 0.9rem;
+    }
+}
+
+@media(max-width: 480px) {
+    /* For mobile, ensure the email fits well and doesn't look too big */
+    .ceo p.email {
+        font-size: 0.8rem;
+        color: #4A4A4A;
+    }
+}

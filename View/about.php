@@ -78,13 +78,13 @@ session_start();
         <div class="ceo-container">
             <div class="ceo">
                 <img src="../images/Rroni1.jpeg" alt="Rroni">
-                <p><strong>Rron Morina</strong></p>
-                <p>rronmorina65@gmail.com</p>
+                <p class="email"><strong>Rron Morina</strong></p>
+                <p class="email">rronmorina65@gmail.com</p>
             </div>
             <div class="ceo">
                 <img src="../images/Redoni.jpeg" alt="Redoni">
-                <p><Strong>Redon Brovina</Strong></p>
-                <p>redonbrovina@gmail.com</p>
+                <p class="email"><Strong>Redon Brovina</Strong></p>
+                <p class="email">redonbrovina@gmail.com</p>
             </div>
         </div>
     </section>
