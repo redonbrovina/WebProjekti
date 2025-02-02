@@ -132,7 +132,6 @@ footer label, .footer {
     margin-top: 20px;
     margin-bottom: 20px;
 }
-
 /* Media Queries */
 @media(max-width: 1024px) {
     nav {

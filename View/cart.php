@@ -48,6 +48,32 @@ if (isset($_GET['action']) && $_GET['action'] == 'remove' && isset($_GET['produc
     <title>Your Cart</title>
     <link rel="stylesheet" href="shop.css">
 </head>
+<style>
+    footer {
+        margin-top: 15.2rem;
+    }
+
+    @media(max-width:1080px){
+        footer {
+            margin-top: 39.5rem;
+        }
+    }
+
+    @media(max-width: 480px){
+        .checkout-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkout-container > a {
+            width: 10rem;
+            text-align: center;
+            display:block;
+            margin:auto;
+            margin-top: 1rem;
+        }
+    }
+</style>
 <body>
     <div class="cart-header">Your Shopping Cart</div>
 
