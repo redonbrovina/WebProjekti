@@ -74,7 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
 
         .shop-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             padding: 40px;
             max-width: 1200px;
@@ -134,6 +134,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['product_id'])) {
             padding: 20px;
         }
 
+        @media(max-width:480px){
+            .shop-container {
+                max-width: 480px;
+            }
+        }
     </style>
 </head>
 <body>

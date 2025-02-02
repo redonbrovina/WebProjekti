@@ -32,12 +32,24 @@ nav {
     gap: 3.125rem;
 }
 
-#nav-submenu > a, #form-redirect {
+#form-redirect {
+    color: gray;
+    text-decoration: none;
+    align-self: center;
+}
+
+#nav-submenu > a {
     color: gray;
     text-decoration: none;
 }
 
-#nav-submenu > a:hover, #form-redirect:hover {
+#nav-submenu > a:hover {
+    color: black;
+    transition: 0.3s;
+    text-decoration: underline;
+}
+
+#form-redirect:hover {
     color: black;
     text-decoration: underline;
     transition: 0.3s;
@@ -167,7 +179,7 @@ footer label, .footer {
     }
 
     #mobile-nav {
-        display: flex;
+        display: none;
         width: 100%;
         align-items: center;
         justify-content: space-evenly;
